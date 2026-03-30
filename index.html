@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shed | Home</title>
+  <meta name="description" content="For over 25 years, Shed has shaped bold, distinctive brands — an agile team of strategists, designers & architects, creating fearless, unconventional spaces.">
+  <meta property="og:title" content="Shed | Home">
+  <meta property="og:description" content="For over 25 years, Shed has shaped bold, distinctive brands.">
+  <meta property="og:type" content="website">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/branding.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <!-- Preload fonts -->
+  <link rel="preload" href="fonts/Owners-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/SequelSans-RomanHead.woff2" as="font" type="font/woff2" crossorigin>
+</head>
+<body>
+  <!-- Page Transition Overlay -->
+  <div class="page-transition-overlay"></div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor">
+    <div class="cursor__label"><p></p></div>
+  </div>
+
+  <!-- Custom Scrollbar -->
+  <div class="scrollbar">
+    <div class="scrollbar__wrapper">
+      <div class="scrollbar__handle"></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header header--dark">
+    <a href="index.html" class="header-logo" data-cursor="Home" data-cursor-small>
+      <svg class="header-logo__svg" viewBox="0 0 96 32" fill="currentColor">
+        <path d="m13.085 12.857-.953-.432c-3.07-1.386-4.214-2.54-4.214-4.27 0-1.894 1.437-3.327 3.347-3.327 3.198 0 4.614 2.998 5.49 5.61l.115.339 2.674-.423-.068-.415c-.489-3.01-.782-5.073-.948-6.692l-.03-.288-1.947-.528-.587-.152a15.7 15.7 0 0 0-4.091-.533c-3.321 0-6.09.934-8.012 2.702-1.782 1.636-2.76 3.961-2.76 6.544 0 4.621 3.76 6.989 7.825 8.862l.646.3c2.905 1.327 4.087 2.71 4.087 4.786 0 2.371-1.365 3.843-3.564 3.843-4.533 0-6.884-5.83-7.31-6.997l-.136-.372L0 22.192l.068.367c.272 1.522.566 2.905.82 4.127.23 1.095.447 2.13.609 3.06l.038.208.192.093c.54.27 1.45.617 2.78 1.057 1.102.363 2.943.752 4.81.752 6.723 0 11.422-3.944 11.422-9.588s-3.95-7.741-7.65-9.42zm28.806 13.38v-8.611c0-4.414-2.568-7.052-6.876-7.052-2.037 0-3.674.993-5.035 1.961V0l-.489.08-2.7.448c-2.675.449-4.989.833-6.766 1.057l-.37.047v2.313l.395.025c1.149.076 1.812.13 2.042.363.234.237.246.905.246 1.97v19.934c0 2.203-.02 2.229-2.432 2.465l-.379.038v2.478h11.87v-2.452l-.35-.06c-.71-.122-.859-.207-.935-.35-.12-.237-.128-.757-.128-1.603V15.808c.638-.495 1.22-.867 2.046-.867 1.833 0 2.22 1.67 2.22 3.07v8.446c0 .969 0 1.607-.154 1.86-.106.178-.386.267-1.203.385l-.361.051v2.46h11.74V28.74l-.37-.042c-1.972-.232-2.01-.237-2.01-2.465v.005Zm19.979-8.18c0-4.41-4.01-7.48-7.608-7.48-6.035 0-10.946 5.036-10.946 11.226 0 5.85 4.231 9.935 10.295 9.935 1.701 0 5.324-1.061 8.097-5.044l.153-.22-1.178-1.974-.366.22c-1.607.972-2.925 1.573-4.541 1.573-1.982 0-4.73-1.87-5.006-5.378 3.951-.178 8.977-.58 9.68-.719 1.194-.224 1.42-.562 1.42-2.135zm-7.174-.453s-.09.055-.46.076l-3.393.115c.14-3.112 1.322-4.14 1.9-4.14.736 0 2.004 1.751 2.004 3.54 0 .338-.043.401-.051.41ZM86.18 27.781l-1.74-.11c-.956-.072-1.033-.076-1.033-1.734V0l-.489.08-2.691.448c-2.569.427-4.997.833-6.775 1.057l-.37.047v2.313l.396.025c1.148.076 1.811.13 2.045.363.234.237.247.905.247 1.97V10.7c-.34-.067-.689-.126-1.008-.126-3.56 0-6.787 1.302-9.083 3.665-2.059 2.118-3.134 4.9-3.028 7.834.23 6.591 5.762 9.66 9.428 9.66.655 0 1.407-.11 2.5-.896 0 0 .66-.486 1.195-.883v2.037l.532-.143c3.023-.82 6.557-1.256 8.458-1.488l1.433-.186-.008-.368v-2.03zm-10.414-.888c-.409.321-.808.473-1.31.473-.761 0-3.606-1.234-3.606-7.284s2.734-6.426 3.044-6.426c.681 0 1.276.376 1.872 1.154v12.087zm15.815-3.924c-2.492 0-4.368 1.924-4.368 4.473s1.88 4.473 4.368 4.473c2.487 0 4.414-1.88 4.414-4.473 0-2.591-1.897-4.473-4.414-4.473"/>
+      </svg>
+    </a>
+    <button class="nav-toggle nav-toggle--open" data-cursor="Menu" data-cursor-small>
+      <svg class="nav-toggle__svg" viewBox="0 0 19 19" fill="none">
+        <path stroke="currentColor" d="M19 9.5H0M9.5 19V0"></path>
+      </svg>
+      <span class="nav-toggle__label-wrapper" data-label="Menu">
+        <span class="nav-toggle__label">Menu</span>
+      </span>
+    </button>
+  </header>
+
+  <!-- Full-Screen Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__title">
+      <span class="title-pill title-pill--medium title-pill--filled title-pill--fill-dark">
+        <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+        <span class="title-pill__label body-xs text-uppercase">Navigation</span>
+      </span>
+    </div>
+    <ul class="nav__list">
+      <li class="nav-item">
+        <div class="nav-item__link-border nav-item__link-border--top"></div>
+        <a href="index.html" class="nav-item__link active">
+          <span class="nav-item__link-label"><span class="nav-item__link-inner">About</span></span>
+        </a>
+        <div class="nav-item__link-border nav-item__link-border--bot"></div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-item__link-border nav-item__link-border--top"></div>
+        <a href="services.html" class="nav-item__link">
+          <span class="nav-item__link-label"><span class="nav-item__link-inner">Services</span></span>
+        </a>
+        <div class="nav-item__link-border nav-item__link-border--bot"></div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-item__link-border nav-item__link-border--top"></div>
+        <a href="work.html" class="nav-item__link">
+          <span class="nav-item__link-label"><span class="nav-item__link-inner">Work</span></span>
+        </a>
+        <div class="nav-item__link-border nav-item__link-border--bot"></div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-item__link-border nav-item__link-border--top"></div>
+        <a href="blog.html" class="nav-item__link">
+          <span class="nav-item__link-label"><span class="nav-item__link-inner">News &amp; Views</span></span>
+        </a>
+        <div class="nav-item__link-border nav-item__link-border--bot"></div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-item__link-border nav-item__link-border--top"></div>
+        <a href="contact.html" class="nav-item__link">
+          <span class="nav-item__link-label"><span class="nav-item__link-inner">Contact</span></span>
+        </a>
+        <div class="nav-item__link-border nav-item__link-border--bot"></div>
+      </li>
+    </ul>
+    <!-- Close button (inside nav) -->
+    <button class="nav-toggle nav-toggle--close" style="position:absolute;right:0.8rem;top:1.4rem;display:none;color:#000;z-index:700">
+      <svg class="nav-toggle__svg" viewBox="0 0 19 19" fill="none">
+        <path stroke="currentColor" d="M19 9.5H0M9.5 19V0"></path>
+      </svg>
+      <span class="nav-toggle__label-wrapper" data-label="Close">
+        <span class="nav-toggle__label">Close</span>
+      </span>
+    </button>
+  </nav>
+
+  <!-- Nav Backdrop -->
+  <div class="transition-overlay"></div>
+
+  <!-- Page Wrapper -->
+  <div class="page-wrapper">
+    <main class="page">
+
+      <!-- ===== HERO SECTION ===== -->
+      <section class="home-hero">
+        <div class="home-hero__wrapper">
+          <!-- Hero Assets (Image Carousel) -->
+          <div class="home-hero-assets">
+            <div class="home-hero-assets__wrapper">
+              <div class="home-hero-asset">
+                <div class="home-hero-asset__wrapper">
+                  <div class="home-hero-asset__fig">
+                    <img src="img/home-hero-1.jpg" alt="Shed project">
+                  </div>
+                </div>
+              </div>
+              <div class="home-hero-asset">
+                <div class="home-hero-asset__wrapper">
+                  <div class="home-hero-asset__fig">
+                    <img src="img/services-hover-1.jpg" alt="Shed project">
+                  </div>
+                </div>
+              </div>
+              <div class="home-hero-asset">
+                <div class="home-hero-asset__wrapper">
+                  <div class="home-hero-asset__fig">
+                    <img src="img/services-hover-2.jpg" alt="Shed project">
+                  </div>
+                </div>
+              </div>
+              <div class="home-hero-asset">
+                <div class="home-hero-asset__wrapper">
+                  <div class="home-hero-asset__fig">
+                    <img src="img/featured-1.jpg" alt="Shed project">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Intro sizing reference (invisible, used for scale calculation) -->
+            <span class="home-hero-assets__intro" aria-hidden="true"></span>
+          </div>
+
+          <!-- Hero Title -->
+          <div class="home-hero-title">
+            <h1 class="h1 anim-word" data-intro-title>This is Shed</h1>
+          </div>
+
+          <!-- Hero Subtitle Pill (desktop only) -->
+          <div class="home-hero__subtitle">
+            <span class="title-pill title-pill--medium title-pill--filled title-pill--fill-light">
+              <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+              <span class="title-pill__label body-xs text-uppercase">Building brands through experience for more than 25 years</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Scrolling Marquee (bottom of hero) -->
+        <div class="home-hero__marquee">
+          <div class="marquee-fade">
+            <div class="marquee-fade__track">
+              <span class="home-hero__marquee-text body-sm">Building brands through experience for more than 25 years&nbsp;&nbsp;&mdash;&nbsp;&nbsp;Building brands through experience for more than 25 years&nbsp;&nbsp;&mdash;&nbsp;&nbsp;Building brands through experience for more than 25 years&nbsp;&nbsp;&mdash;&nbsp;&nbsp;Building brands through experience for more than 25 years&nbsp;&nbsp;&mdash;&nbsp;&nbsp;</span>
+              <span class="home-hero__marquee-text body-sm" aria-hidden="true">Building brands through experience for more than 25 years&nbsp;&nbsp;&mdash;&nbsp;&nbsp;Building brands through experience for more than 25 years&nbsp;&nbsp;&mdash;&nbsp;&nbsp;Building brands through experience for more than 25 years&nbsp;&nbsp;&mdash;&nbsp;&nbsp;Building brands through experience for more than 25 years&nbsp;&nbsp;&mdash;&nbsp;&nbsp;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel Thumbnail Control (bottom-left) -->
+        <div class="home-hero-carousel-control" data-cursor="View" data-cursor-small>
+          <div class="home-hero-carousel-control__inner">
+            <img src="img/services-hover-1.jpg" alt="" class="home-hero-carousel-control__img">
+          </div>
+        </div>
+
+        <!-- Scroll Button (bottom-right) -->
+        <div class="home-hero__scroll" data-cursor="Scroll" data-cursor-small>
+          <span class="body-xs text-uppercase">Scroll</span>
+        </div>
+      </section>
+
+      <!-- ===== INTRO SECTION ===== -->
+      <section class="home-intro grid">
+        <div class="home-intro__label col-5 col-md-9 anim-fade" data-reveal>
+          <span class="title-pill title-pill--small">
+            <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+            <span class="title-pill__label body-xs text-uppercase">Introduction</span>
+          </span>
+        </div>
+        <div class="home-intro__copy col-5 col-md-9">
+          <p class="home-intro__text anim-line" data-reveal>
+            For over two decades we've worked with ambitious brands to define and build business through their environments. We're an agile, international team of strategic thinkers, brand designers and interior architects, never afraid to challenge the conventional. We're devoid of a house style, believing in purposeful, relevant design for every project.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===== SHOWREEL SECTION ===== -->
+      <section class="home-reel grid">
+        <div class="home-reel__wrapper clip-reveal" data-reveal>
+          <div class="home-reel__thumbnail">
+            <img src="img/home-hero-1.jpg" alt="Shed showreel">
+          </div>
+          <div class="home-reel__btn" data-cursor="Play">
+            <div class="home-reel__btn-svg-wrapper">
+              <svg class="home-reel__btn-svg home-reel__btn-svg--play" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5,3 19,12 5,21"></polygon>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="home-reel__cta-wrapper anim-line" data-reveal>
+          <h3 class="body-lg" style="margin-top:auto">Shed Spirit</h3>
+          <p class="home-reel__copy body-md">
+            We don't believe in one-size-fits-all. Our success comes from understanding each client's unique challenges, identifying the best approach and delivering tailored solutions.
+          </p>
+          <a href="work.html" class="btn btn--theme-dark" data-cursor="View">
+            <span class="btn__label">Our work</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===== SERVICES SECTION ===== -->
+      <section class="home-services" data-section-reveal>
+        <div class="grid" style="position:relative;z-index:2">
+          <div class="home-services__wrapper col-5 col-md-5">
+            <h2 class="body-lg anim-word" data-reveal-child>
+              Core services and sectors
+            </h2>
+            <p class="home-services__copy body-md anim-line" data-reveal-child>
+              We have extensive experience across a range of commercial sectors. We offer a complete end-to-end service from brand strategy to interior design and production.
+            </p>
+            <a href="services.html" class="btn btn--theme-light anim-fade" data-reveal-child data-cursor="View">
+              <span class="btn__label">Our services</span>
+            </a>
+          </div>
+        </div>
+        <div class="grid home-services__list-wrapper" style="position:relative;z-index:2">
+          <div class="home-services__list col-5 col-md-5" data-section-reveal>
+            <div class="home-service-item h4" data-cursor="View">
+              <div class="home-service-item__label home-service-item__label--main oh">
+                <span class="home-service-item__label-inner" data-reveal-child>Retail</span>
+              </div>
+              <div class="home-service-item__label home-service-item__label--ghost">Retail</div>
+            </div>
+            <div class="home-service-item h4" data-cursor="View">
+              <div class="home-service-item__label home-service-item__label--main oh">
+                <span class="home-service-item__label-inner" data-reveal-child>Hospitality</span>
+              </div>
+              <div class="home-service-item__label home-service-item__label--ghost">Hospitality</div>
+            </div>
+            <div class="home-service-item h4" data-cursor="View">
+              <div class="home-service-item__label home-service-item__label--main oh">
+                <span class="home-service-item__label-inner" data-reveal-child>Workplace</span>
+              </div>
+              <div class="home-service-item__label home-service-item__label--ghost">Workplace</div>
+            </div>
+            <div class="home-service-item h4" data-cursor="View">
+              <div class="home-service-item__label home-service-item__label--main oh">
+                <span class="home-service-item__label-inner" data-reveal-child>Exhibition</span>
+              </div>
+              <div class="home-service-item__label home-service-item__label--ghost">Exhibition</div>
+            </div>
+          </div>
+          <!-- Service hover images (desktop only) -->
+          <div class="home-services__figs-wrapper">
+            <div class="home-services__figs">
+              <div class="home-services__fig" data-index="0">
+                <img src="img/services-hover-1.jpg" alt="Retail">
+              </div>
+              <div class="home-services__fig" data-index="1">
+                <img src="img/services-hover-2.jpg" alt="Hospitality">
+              </div>
+              <div class="home-services__fig" data-index="2">
+                <img src="img/services-hover-3.jpg" alt="Workplace">
+              </div>
+              <div class="home-services__fig" data-index="3">
+                <img src="img/featured-2.jpg" alt="Exhibition">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CLIENTS SECTION ===== -->
+      <section class="home-clients grid" data-section-reveal>
+        <div class="home-clients__list home-clients__list--left">
+          <h2 class="body-lg anim-word" data-reveal-child>Selected Clients</h2>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <a href="work-detail.html" class="home-client--link body-lg">Harrods <span class="home-client__hover body-xs">See project</span></a>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <a href="work-detail.html" class="home-client--link body-lg">The Office Group <span class="home-client__hover body-xs">See project</span></a>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <a href="work-detail.html" class="home-client--link body-lg">Vertu <span class="home-client__hover body-xs">See project</span></a>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <a href="work-detail.html" class="home-client--link body-lg">William &amp; Son <span class="home-client__hover body-xs">See project</span></a>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <a href="work-detail.html" class="home-client--link body-lg">Level Shoe District <span class="home-client__hover body-xs">See project</span></a>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <a href="work-detail.html" class="home-client--link body-lg">Lotte <span class="home-client__hover body-xs">See project</span></a>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <a href="work-detail.html" class="home-client--link body-lg">Spencer Hart <span class="home-client__hover body-xs">See project</span></a>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <span class="body-lg">Nike</span>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <span class="body-lg">Prada</span>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <a href="work-detail.html" class="home-client--link body-lg">Barbour <span class="home-client__hover body-xs">See project</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="home-clients__list home-clients__list--right">
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <span class="body-lg">Lamborghini</span>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <span class="body-lg">LLA</span>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <a href="work-detail.html" class="home-client--link body-lg">Jollibee <span class="home-client__hover body-xs">See project</span></a>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <span class="body-lg">Kurt Geiger</span>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <a href="work-detail.html" class="home-client--link body-lg">Meat Liquor <span class="home-client__hover body-xs">See project</span></a>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <a href="work-detail.html" class="home-client--link body-lg">Commodity <span class="home-client__hover body-xs">See project</span></a>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <span class="body-lg">Liberty</span>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <a href="work-detail.html" class="home-client--link body-lg">Bounce <span class="home-client__hover body-xs">See project</span></a>
+            </div>
+          </div>
+          <div class="home-clients__item" data-reveal-child>
+            <div class="home-clients__item-inner">
+              <span class="body-lg">HTC</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== FEATURED NEWS SECTION ===== -->
+      <section class="home-featured-news grid">
+        <div class="home-featured-news__header col-5 col-md-9">
+          <h2 class="body-lg anim-word" data-reveal>Latest Updates</h2>
+          <a href="blog.html" class="btn btn--theme-dark anim-fade" data-reveal data-cursor="View">
+            <span class="btn__label">News & Views</span>
+          </a>
+        </div>
+        <div class="home-featured-news__grid grid grid--no-pad col-5 col-md-9">
+          <div class="home-featured-news__item">
+            <a href="#" class="list-item" data-cursor="Read">
+              <div class="list-item__fig clip-reveal" data-reveal>
+                <img src="img/featured-1.jpg" alt="Featured project" class="base-image__img base-image__img--loaded">
+              </div>
+              <div class="list-item__wrapper anim-line" data-reveal>
+                <span class="title-pill title-pill--filled title-pill--fill-dark">
+                  <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+                  <span class="title-pill__label body-xs text-uppercase">News</span>
+                </span>
+                <h3 class="list-item__title" style="margin-top:0.5rem">New Project Drop</h3>
+                <p class="body-sm" style="margin-top:0.3rem">Russell &amp; Bromley's Hampstead, London, is now open.</p>
+              </div>
+            </a>
+          </div>
+          <div class="home-featured-news__item">
+            <a href="#" class="list-item" data-cursor="Read">
+              <div class="list-item__fig clip-reveal" data-reveal>
+                <img src="img/featured-2.jpg" alt="Featured project" class="base-image__img base-image__img--loaded">
+              </div>
+              <div class="list-item__wrapper anim-line" data-reveal>
+                <span class="title-pill title-pill--filled title-pill--fill-dark">
+                  <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+                  <span class="title-pill__label body-xs text-uppercase">News</span>
+                </span>
+                <h3 class="list-item__title" style="margin-top:0.5rem">LBTY Battersea</h3>
+                <p class="body-sm" style="margin-top:0.3rem">Liberty opens first-ever LBTY fragrance pop-up.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer__top">
+        <div class="footer__social">
+          <a href="https://www.instagram.com/shed_design/" class="footer-link body-xs text-uppercase" data-label="Instagram" data-cursor-small target="_blank" rel="noopener">
+            <span class="footer-link__label">Instagram</span>
+          </a>
+          <a href="https://www.linkedin.com/company/shed-design/" class="footer-link body-xs text-uppercase" data-label="LinkedIn" data-cursor-small target="_blank" rel="noopener">
+            <span class="footer-link__label">LinkedIn</span>
+          </a>
+        </div>
+        <a href="index.html" class="header-logo" style="color:currentColor">
+          <svg class="header-logo__svg" viewBox="0 0 96 32" fill="currentColor">
+            <path d="m13.085 12.857-.953-.432c-3.07-1.386-4.214-2.54-4.214-4.27 0-1.894 1.437-3.327 3.347-3.327 3.198 0 4.614 2.998 5.49 5.61l.115.339 2.674-.423-.068-.415c-.489-3.01-.782-5.073-.948-6.692l-.03-.288-1.947-.528-.587-.152a15.7 15.7 0 0 0-4.091-.533c-3.321 0-6.09.934-8.012 2.702-1.782 1.636-2.76 3.961-2.76 6.544 0 4.621 3.76 6.989 7.825 8.862l.646.3c2.905 1.327 4.087 2.71 4.087 4.786 0 2.371-1.365 3.843-3.564 3.843-4.533 0-6.884-5.83-7.31-6.997l-.136-.372L0 22.192l.068.367c.272 1.522.566 2.905.82 4.127.23 1.095.447 2.13.609 3.06l.038.208.192.093c.54.27 1.45.617 2.78 1.057 1.102.363 2.943.752 4.81.752 6.723 0 11.422-3.944 11.422-9.588s-3.95-7.741-7.65-9.42zm28.806 13.38v-8.611c0-4.414-2.568-7.052-6.876-7.052-2.037 0-3.674.993-5.035 1.961V0l-.489.08-2.7.448c-2.675.449-4.989.833-6.766 1.057l-.37.047v2.313l.395.025c1.149.076 1.812.13 2.042.363.234.237.246.905.246 1.97v19.934c0 2.203-.02 2.229-2.432 2.465l-.379.038v2.478h11.87v-2.452l-.35-.06c-.71-.122-.859-.207-.935-.35-.12-.237-.128-.757-.128-1.603V15.808c.638-.495 1.22-.867 2.046-.867 1.833 0 2.22 1.67 2.22 3.07v8.446c0 .969 0 1.607-.154 1.86-.106.178-.386.267-1.203.385l-.361.051v2.46h11.74V28.74l-.37-.042c-1.972-.232-2.01-.237-2.01-2.465v.005Zm19.979-8.18c0-4.41-4.01-7.48-7.608-7.48-6.035 0-10.946 5.036-10.946 11.226 0 5.85 4.231 9.935 10.295 9.935 1.701 0 5.324-1.061 8.097-5.044l.153-.22-1.178-1.974-.366.22c-1.607.972-2.925 1.573-4.541 1.573-1.982 0-4.73-1.87-5.006-5.378 3.951-.178 8.977-.58 9.68-.719 1.194-.224 1.42-.562 1.42-2.135zm-7.174-.453s-.09.055-.46.076l-3.393.115c.14-3.112 1.322-4.14 1.9-4.14.736 0 2.004 1.751 2.004 3.54 0 .338-.043.401-.051.41ZM86.18 27.781l-1.74-.11c-.956-.072-1.033-.076-1.033-1.734V0l-.489.08-2.691.448c-2.569.427-4.997.833-6.775 1.057l-.37.047v2.313l.396.025c1.148.076 1.811.13 2.045.363.234.237.247.905.247 1.97V10.7c-.34-.067-.689-.126-1.008-.126-3.56 0-6.787 1.302-9.083 3.665-2.059 2.118-3.134 4.9-3.028 7.834.23 6.591 5.762 9.66 9.428 9.66.655 0 1.407-.11 2.5-.896 0 0 .66-.486 1.195-.883v2.037l.532-.143c3.023-.82 6.557-1.256 8.458-1.488l1.433-.186-.008-.368v-2.03zm-10.414-.888c-.409.321-.808.473-1.31.473-.761 0-3.606-1.234-3.606-7.284s2.734-6.426 3.044-6.426c.681 0 1.276.376 1.872 1.154v12.087zm15.815-3.924c-2.492 0-4.368 1.924-4.368 4.473s1.88 4.473 4.368 4.473c2.487 0 4.414-1.88 4.414-4.473 0-2.591-1.897-4.473-4.414-4.473"/>
+          </svg>
+        </a>
+      </div>
+      <nav class="footer__nav">
+        <a href="index.html" class="footer-nav__link h4" data-cursor-small>About</a>
+        <a href="services.html" class="footer-nav__link h4" data-cursor-small>Services</a>
+        <a href="work.html" class="footer-nav__link h4" data-cursor-small>Work</a>
+        <a href="blog.html" class="footer-nav__link h4" data-cursor-small>News &amp; Views</a>
+        <a href="contact.html" class="footer-nav__link h4" data-cursor-small>Contact</a>
+      </nav>
+      <div class="footer__bottom">
+        <div class="footer__legal">
+          <a href="#" class="footer-link body-xs text-uppercase" data-label="Terms & Conditions">
+            <span class="footer-link__label">Terms &amp; Conditions</span>
+          </a>
+          <a href="#" class="footer-link body-xs text-uppercase" data-label="Privacy Policy">
+            <span class="footer-link__label">Privacy Policy</span>
+          </a>
+        </div>
+        <span class="footer__credit body-xs">Site by IJP + TA</span>
+      </div>
+    </footer>
+
+    <!-- SEE WORK CTA -->
+    <section class="see-work-cta" data-cursor="View">
+      <a href="work.html" class="see-work-cta__link">
+        <span class="see-work-cta__text h2">See</span>
+        <span class="see-work-cta__img-wrapper">
+          <img src="img/featured-1.jpg" alt="" class="see-work-cta__img">
+        </span>
+        <span class="see-work-cta__text h2">Work</span>
+        <span class="see-work-cta__arrow">
+          <svg viewBox="0 0 155 157" fill="currentColor">
+            <path stroke="currentColor" stroke-width="3" d="M1.5 87.688v1.5h109.691l-48.798 48.797-1.064 1.064 1.068 1.061 13.046 12.954 1.06 1.054 1.058-1.057 73.5-73.5 1.06-1.061-1.06-1.06-73.5-73.5L76.5 2.878l-1.06 1.06-12.955 12.955-1.06 1.06 1.059 1.06 48.711 48.799H1.5v19.874Z"/>
+          </svg>
+        </span>
+      </a>
+    </section>
+  </div>
+
+  <!-- Scripts (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+
+  <!-- App Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/transitions.js"></script>
+  <script src="js/components.js"></script>
+</body>
+</html>

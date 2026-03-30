@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shed | Work</title>
+  <meta name="description" content="Explore Shed's portfolio of bold, distinctive brand environments across retail, hospitality, workplace and exhibition sectors.">
+  <meta property="og:title" content="Shed | Work">
+  <meta property="og:description" content="Explore Shed's portfolio of bold, distinctive brand environments.">
+  <meta property="og:type" content="website">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/branding.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <!-- Preload fonts -->
+  <link rel="preload" href="fonts/Owners-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/SequelSans-RomanHead.woff2" as="font" type="font/woff2" crossorigin>
+</head>
+<body style="background-color:#141414;color:#A4A4A4">
+  <!-- Page Transition Overlay -->
+  <div class="page-transition-overlay"></div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor">
+    <div class="cursor__label"><p></p></div>
+  </div>
+
+  <!-- Custom Scrollbar -->
+  <div class="scrollbar">
+    <div class="scrollbar__wrapper">
+      <div class="scrollbar__handle"></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header header--dark" id="workHeader">
+    <a href="index.html" class="header-logo" data-cursor="Home" data-cursor-small>
+      <svg class="header-logo__svg" viewBox="0 0 96 32" fill="currentColor">
+        <path d="m13.085 12.857-.953-.432c-3.07-1.386-4.214-2.54-4.214-4.27 0-1.894 1.437-3.327 3.347-3.327 3.198 0 4.614 2.998 5.49 5.61l.115.339 2.674-.423-.068-.415c-.489-3.01-.782-5.073-.948-6.692l-.03-.288-1.947-.528-.587-.152a15.7 15.7 0 0 0-4.091-.533c-3.321 0-6.09.934-8.012 2.702-1.782 1.636-2.76 3.961-2.76 6.544 0 4.621 3.76 6.989 7.825 8.862l.646.3c2.905 1.327 4.087 2.71 4.087 4.786 0 2.371-1.365 3.843-3.564 3.843-4.533 0-6.884-5.83-7.31-6.997l-.136-.372L0 22.192l.068.367c.272 1.522.566 2.905.82 4.127.23 1.095.447 2.13.609 3.06l.038.208.192.093c.54.27 1.45.617 2.78 1.057 1.102.363 2.943.752 4.81.752 6.723 0 11.422-3.944 11.422-9.588s-3.95-7.741-7.65-9.42zm28.806 13.38v-8.611c0-4.414-2.568-7.052-6.876-7.052-2.037 0-3.674.993-5.035 1.961V0l-.489.08-2.7.448c-2.675.449-4.989.833-6.766 1.057l-.37.047v2.313l.395.025c1.149.076 1.812.13 2.042.363.234.237.246.905.246 1.97v19.934c0 2.203-.02 2.229-2.432 2.465l-.379.038v2.478h11.87v-2.452l-.35-.06c-.71-.122-.859-.207-.935-.35-.12-.237-.128-.757-.128-1.603V15.808c.638-.495 1.22-.867 2.046-.867 1.833 0 2.22 1.67 2.22 3.07v8.446c0 .969 0 1.607-.154 1.86-.106.178-.386.267-1.203.385l-.361.051v2.46h11.74V28.74l-.37-.042c-1.972-.232-2.01-.237-2.01-2.465v.005Zm19.979-8.18c0-4.41-4.01-7.48-7.608-7.48-6.035 0-10.946 5.036-10.946 11.226 0 5.85 4.231 9.935 10.295 9.935 1.701 0 5.324-1.061 8.097-5.044l.153-.22-1.178-1.974-.366.22c-1.607.972-2.925 1.573-4.541 1.573-1.982 0-4.73-1.87-5.006-5.378 3.951-.178 8.977-.58 9.68-.719 1.194-.224 1.42-.562 1.42-2.135zm-7.174-.453s-.09.055-.46.076l-3.393.115c.14-3.112 1.322-4.14 1.9-4.14.736 0 2.004 1.751 2.004 3.54 0 .338-.043.401-.051.41ZM86.18 27.781l-1.74-.11c-.956-.072-1.033-.076-1.033-1.734V0l-.489.08-2.691.448c-2.569.427-4.997.833-6.775 1.057l-.37.047v2.313l.396.025c1.148.076 1.811.13 2.045.363.234.237.247.905.247 1.97V10.7c-.34-.067-.689-.126-1.008-.126-3.56 0-6.787 1.302-9.083 3.665-2.059 2.118-3.134 4.9-3.028 7.834.23 6.591 5.762 9.66 9.428 9.66.655 0 1.407-.11 2.5-.896 0 0 .66-.486 1.195-.883v2.037l.532-.143c3.023-.82 6.557-1.256 8.458-1.488l1.433-.186-.008-.368v-2.03zm-10.414-.888c-.409.321-.808.473-1.31.473-.761 0-3.606-1.234-3.606-7.284s2.734-6.426 3.044-6.426c.681 0 1.276.376 1.872 1.154v12.087zm15.815-3.924c-2.492 0-4.368 1.924-4.368 4.473s1.88 4.473 4.368 4.473c2.487 0 4.414-1.88 4.414-4.473 0-2.591-1.897-4.473-4.414-4.473"/>
+      </svg>
+    </a>
+    <!-- Header Center Pill -->
+    <span class="header__center-pill title-pill title-pill--small" id="headerPill">
+      <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+      <span class="title-pill__label body-xs text-uppercase" id="headerPillLabel">Featured Projects</span>
+    </span>
+    <button class="nav-toggle nav-toggle--open" data-cursor="Menu" data-cursor-small>
+      <svg class="nav-toggle__svg" viewBox="0 0 19 19" fill="none">
+        <path stroke="currentColor" d="M19 9.5H0M9.5 19V0"></path>
+      </svg>
+      <span class="nav-toggle__label-wrapper" data-label="Menu">
+        <span class="nav-toggle__label">Menu</span>
+      </span>
+    </button>
+  </header>
+
+  <!-- Full-Screen Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__title">
+      <span class="title-pill title-pill--medium title-pill--filled title-pill--fill-dark">
+        <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+        <span class="title-pill__label body-xs text-uppercase">Navigation</span>
+      </span>
+    </div>
+    <ul class="nav__list">
+      <li class="nav-item">
+        <div class="nav-item__link-border nav-item__link-border--top"></div>
+        <a href="index.html" class="nav-item__link">
+          <span class="nav-item__link-label"><span class="nav-item__link-inner">About</span></span>
+        </a>
+        <div class="nav-item__link-border nav-item__link-border--bot"></div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-item__link-border nav-item__link-border--top"></div>
+        <a href="services.html" class="nav-item__link">
+          <span class="nav-item__link-label"><span class="nav-item__link-inner">Services</span></span>
+        </a>
+        <div class="nav-item__link-border nav-item__link-border--bot"></div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-item__link-border nav-item__link-border--top"></div>
+        <a href="work.html" class="nav-item__link active">
+          <span class="nav-item__link-label"><span class="nav-item__link-inner">Work</span></span>
+        </a>
+        <div class="nav-item__link-border nav-item__link-border--bot"></div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-item__link-border nav-item__link-border--top"></div>
+        <a href="blog.html" class="nav-item__link">
+          <span class="nav-item__link-label"><span class="nav-item__link-inner">News &amp; Views</span></span>
+        </a>
+        <div class="nav-item__link-border nav-item__link-border--bot"></div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-item__link-border nav-item__link-border--top"></div>
+        <a href="contact.html" class="nav-item__link">
+          <span class="nav-item__link-label"><span class="nav-item__link-inner">Contact</span></span>
+        </a>
+        <div class="nav-item__link-border nav-item__link-border--bot"></div>
+      </li>
+    </ul>
+    <button class="nav-toggle nav-toggle--close" style="position:absolute;right:0.8rem;top:1.4rem;display:none;color:#000;z-index:700">
+      <svg class="nav-toggle__svg" viewBox="0 0 19 19" fill="none">
+        <path stroke="currentColor" d="M19 9.5H0M9.5 19V0"></path>
+      </svg>
+      <span class="nav-toggle__label-wrapper" data-label="Close">
+        <span class="nav-toggle__label">Close</span>
+      </span>
+    </button>
+  </nav>
+
+  <!-- Nav Backdrop -->
+  <div class="transition-overlay"></div>
+
+  <!-- Page Wrapper -->
+  <div class="page-wrapper" id="workPageWrapper">
+    <main class="page page--dark" id="workPage">
+
+      <!-- ===== FEATURED VIEW ===== -->
+      <div id="featuredView" class="work-view is-active">
+
+        <!-- Hero -->
+        <section class="base-hero">
+          <h1 class="base-hero__title h1 anim-word" data-reveal>The Work</h1>
+          <p class="base-hero__subtitle body-md anim-line" data-reveal>
+            Select projects from the diverse range we have had the pleasure of delivering over the past 25 years.
+          </p>
+        </section>
+
+        <!-- Filter Bar -->
+        <section class="grid">
+          <div class="work-filter col-9" data-reveal>
+            <button class="work-filter__btn active" data-filter="all">All</button>
+            <button class="work-filter__btn" data-filter="hospitality">Hospitality</button>
+            <button class="work-filter__btn" data-filter="retail">Retail</button>
+            <button class="work-filter__btn" data-filter="workplace">Workplace</button>
+            <button class="work-filter__btn" data-filter="exhibition">Exhibition</button>
+            <button class="work-filter__btn" data-filter="brand-identity">Brand Identity</button>
+            <button class="work-filter__btn" data-filter="health-leisure">Health &amp; Leisure</button>
+            <button class="work-filter__btn" data-filter="social-gaming">Social Gaming</button>
+            <button class="work-filter__btn" data-filter="heritage">Heritage</button>
+            <button class="work-filter__btn" data-filter="beauty">Beauty</button>
+            <button class="work-filter__btn" data-filter="infrastructure">Infrastructure</button>
+          </div>
+        </section>
+
+        <!-- ===== WORK GRID ===== -->
+        <div class="work-grid">
+
+          <!-- 1. Commodity -->
+          <div class="work-grid__item work-grid__item--wide" data-category="retail">
+            <a href="work-detail.html" class="list-item" data-cursor="View">
+              <div class="list-item__fig clip-reveal" data-reveal>
+                <img src="img/featured-1.jpg" alt="Commodity" class="base-image__img base-image__img--loaded">
+                <div class="list-item__fig-hover">
+                  <img src="img/featured-2.jpg" alt="Commodity hover" class="base-image__img base-image__img--loaded">
+                </div>
+                <div class="list-item-tags">
+                  <span class="title-pill title-pill--small">
+                    <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+                    <span class="title-pill__label body-xs text-uppercase">Retail</span>
+                  </span>
+                </div>
+              </div>
+              <div class="list-item__wrapper anim-line" data-reveal>
+                <h3 class="list-item__title">Commodity</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- 2. Bounce Battersea -->
+          <div class="work-grid__item" data-category="social-gaming hospitality">
+            <a href="work-detail.html" class="list-item" data-cursor="View">
+              <div class="list-item__fig clip-reveal" data-reveal>
+                <img src="img/case-hero.jpg" alt="Bounce Battersea" class="base-image__img base-image__img--loaded">
+                <div class="list-item__fig-hover">
+                  <img src="img/services-hover-1.jpg" alt="Bounce Battersea hover" class="base-image__img base-image__img--loaded">
+                </div>
+                <div class="list-item-tags">
+                  <span class="title-pill title-pill--small">
+                    <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+                    <span class="title-pill__label body-xs text-uppercase">Social Gaming</span>
+                  </span>
+                </div>
+              </div>
+              <div class="list-item__wrapper anim-line" data-reveal>
+                <h3 class="list-item__title">Bounce Battersea</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- 3. Barbour -->
+          <div class="work-grid__item" data-category="exhibition retail heritage">
+            <a href="work-detail.html" class="list-item" data-cursor="View">
+              <div class="list-item__fig clip-reveal" data-reveal>
+                <img src="img/case-1.jpg" alt="Barbour" class="base-image__img base-image__img--loaded">
+                <div class="list-item__fig-hover">
+                  <img src="img/services-hover-2.jpg" alt="Barbour hover" class="base-image__img base-image__img--loaded">
+                </div>
+                <div class="list-item-tags">
+                  <span class="title-pill title-pill--small">
+                    <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+                    <span class="title-pill__label body-xs text-uppercase">Exhibition</span>
+                  </span>
+                </div>
+              </div>
+              <div class="list-item__wrapper anim-line" data-reveal>
+                <h3 class="list-item__title">Barbour</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- 4. Harrods Toy Kingdom -->
+          <div class="work-grid__item work-grid__item--wide" data-category="retail">
+            <a href="work-detail.html" class="list-item" data-cursor="View">
+              <div class="list-item__fig clip-reveal" data-reveal>
+                <img src="img/case-2.jpg" alt="Harrods Toy Kingdom" class="base-image__img base-image__img--loaded">
+                <div class="list-item__fig-hover">
+                  <img src="img/services-hover-3.jpg" alt="Harrods Toy Kingdom hover" class="base-image__img base-image__img--loaded">
+                </div>
+                <div class="list-item-tags">
+                  <span class="title-pill title-pill--small">
+                    <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+                    <span class="title-pill__label body-xs text-uppercase">Retail</span>
+                  </span>
+                </div>
+              </div>
+              <div class="list-item__wrapper anim-line" data-reveal>
+                <h3 class="list-item__title">Harrods Toy Kingdom</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- 5. Jollibee -->
+          <div class="work-grid__item" data-category="hospitality">
+            <a href="work-detail.html" class="list-item" data-cursor="View">
+              <div class="list-item__fig clip-reveal" data-reveal>
+                <img src="img/case-3.jpg" alt="Jollibee" class="base-image__img base-image__img--loaded">
+                <div class="list-item__fig-hover">
+                  <img src="img/featured-1.jpg" alt="Jollibee hover" class="base-image__img base-image__img--loaded">
+                </div>
+                <div class="list-item-tags">
+                  <span class="title-pill title-pill--small">
+                    <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+                    <span class="title-pill__label body-xs text-uppercase">Hospitality</span>
+                  </span>
+                </div>
+              </div>
+              <div class="list-item__wrapper anim-line" data-reveal>
+                <h3 class="list-item__title">Jollibee</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- 6. Birdies Crazy Golf -->
+          <div class="work-grid__item" data-category="social-gaming hospitality">
+            <a href="work-detail.html" class="list-item" data-cursor="View">
+              <div class="list-item__fig clip-reveal" data-reveal>
+                <img src="img/office-1.jpg" alt="Birdies Crazy Golf" class="base-image__img base-image__img--loaded">
+                <div class="list-item__fig-hover">
+                  <img src="img/office-2.jpg" alt="Birdies Crazy Golf hover" class="base-image__img base-image__img--loaded">
+                </div>
+                <div class="list-item-tags">
+                  <span class="title-pill title-pill--small">
+                    <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+                    <span class="title-pill__label body-xs text-uppercase">Social Gaming</span>
+                  </span>
+                </div>
+              </div>
+              <div class="list-item__wrapper anim-line" data-reveal>
+                <h3 class="list-item__title">Birdies Crazy Golf</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- 7. Vertu -->
+          <div class="work-grid__item" data-category="retail">
+            <a href="work-detail.html" class="list-item" data-cursor="View">
+              <div class="list-item__fig clip-reveal" data-reveal>
+                <img src="img/featured-2.jpg" alt="Vertu" class="base-image__img base-image__img--loaded">
+                <div class="list-item__fig-hover">
+                  <img src="img/case-hero.jpg" alt="Vertu hover" class="base-image__img base-image__img--loaded">
+                </div>
+                <div class="list-item-tags">
+                  <span class="title-pill title-pill--small">
+                    <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+                    <span class="title-pill__label body-xs text-uppercase">Retail</span>
+                  </span>
+                </div>
+              </div>
+              <div class="list-item__wrapper anim-line" data-reveal>
+                <h3 class="list-item__title">Vertu</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- 8. Russell & Bromley -->
+          <div class="work-grid__item work-grid__item--wide" data-category="retail">
+            <a href="work-detail.html" class="list-item" data-cursor="View">
+              <div class="list-item__fig clip-reveal" data-reveal>
+                <img src="img/services-hover-1.jpg" alt="Russell &amp; Bromley" class="base-image__img base-image__img--loaded">
+                <div class="list-item__fig-hover">
+                  <img src="img/services-hover-2.jpg" alt="Russell &amp; Bromley hover" class="base-image__img base-image__img--loaded">
+                </div>
+                <div class="list-item-tags">
+                  <span class="title-pill title-pill--small">
+                    <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+                    <span class="title-pill__label body-xs text-uppercase">Retail</span>
+                  </span>
+                </div>
+              </div>
+              <div class="list-item__wrapper anim-line" data-reveal>
+                <h3 class="list-item__title">Russell &amp; Bromley</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- 9. Angel Square -->
+          <div class="work-grid__item" data-category="workplace">
+            <a href="work-detail.html" class="list-item" data-cursor="View">
+              <div class="list-item__fig clip-reveal" data-reveal>
+                <img src="img/office-3.jpg" alt="Angel Square" class="base-image__img base-image__img--loaded">
+                <div class="list-item__fig-hover">
+                  <img src="img/office-1.jpg" alt="Angel Square hover" class="base-image__img base-image__img--loaded">
+                </div>
+                <div class="list-item-tags">
+                  <span class="title-pill title-pill--small">
+                    <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+                    <span class="title-pill__label body-xs text-uppercase">Workplace</span>
+                  </span>
+                </div>
+              </div>
+              <div class="list-item__wrapper anim-line" data-reveal>
+                <h3 class="list-item__title">Angel Square</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- 10. Ulu Cliffhouse -->
+          <div class="work-grid__item" data-category="health-leisure">
+            <a href="work-detail.html" class="list-item" data-cursor="View">
+              <div class="list-item__fig clip-reveal" data-reveal>
+                <img src="img/services-hover-3.jpg" alt="Ulu Cliffhouse" class="base-image__img base-image__img--loaded">
+                <div class="list-item__fig-hover">
+                  <img src="img/case-1.jpg" alt="Ulu Cliffhouse hover" class="base-image__img base-image__img--loaded">
+                </div>
+                <div class="list-item-tags">
+                  <span class="title-pill title-pill--small">
+                    <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+                    <span class="title-pill__label body-xs text-uppercase">Health &amp; Leisure</span>
+                  </span>
+                </div>
+              </div>
+              <div class="list-item__wrapper anim-line" data-reveal>
+                <h3 class="list-item__title">Ulu Cliffhouse</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- 11. Freuds -->
+          <div class="work-grid__item" data-category="workplace">
+            <a href="work-detail.html" class="list-item" data-cursor="View">
+              <div class="list-item__fig clip-reveal" data-reveal>
+                <img src="img/case-2.jpg" alt="Freuds" class="base-image__img base-image__img--loaded">
+                <div class="list-item__fig-hover">
+                  <img src="img/case-3.jpg" alt="Freuds hover" class="base-image__img base-image__img--loaded">
+                </div>
+                <div class="list-item-tags">
+                  <span class="title-pill title-pill--small">
+                    <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+                    <span class="title-pill__label body-xs text-uppercase">Workplace</span>
+                  </span>
+                </div>
+              </div>
+              <div class="list-item__wrapper anim-line" data-reveal>
+                <h3 class="list-item__title">Freuds</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- 12. Level Shoe District -->
+          <div class="work-grid__item work-grid__item--wide" data-category="retail">
+            <a href="work-detail.html" class="list-item" data-cursor="View">
+              <div class="list-item__fig clip-reveal" data-reveal>
+                <img src="img/case-3.jpg" alt="Level Shoe District" class="base-image__img base-image__img--loaded">
+                <div class="list-item__fig-hover">
+                  <img src="img/featured-1.jpg" alt="Level Shoe District hover" class="base-image__img base-image__img--loaded">
+                </div>
+                <div class="list-item-tags">
+                  <span class="title-pill title-pill--small">
+                    <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+                    <span class="title-pill__label body-xs text-uppercase">Retail</span>
+                  </span>
+                </div>
+              </div>
+              <div class="list-item__wrapper anim-line" data-reveal>
+                <h3 class="list-item__title">Level Shoe District</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- 13. Cha Cha Teng -->
+          <div class="work-grid__item" data-category="hospitality">
+            <a href="work-detail.html" class="list-item" data-cursor="View">
+              <div class="list-item__fig clip-reveal" data-reveal>
+                <img src="img/featured-2.jpg" alt="Cha Cha Teng" class="base-image__img base-image__img--loaded">
+                <div class="list-item__fig-hover">
+                  <img src="img/services-hover-1.jpg" alt="Cha Cha Teng hover" class="base-image__img base-image__img--loaded">
+                </div>
+                <div class="list-item-tags">
+                  <span class="title-pill title-pill--small">
+                    <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+                    <span class="title-pill__label body-xs text-uppercase">Hospitality</span>
+                  </span>
+                </div>
+              </div>
+              <div class="list-item__wrapper anim-line" data-reveal>
+                <h3 class="list-item__title">Cha Cha Teng</h3>
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- THE INDEX CTA -->
+        <section class="index-cta" data-reveal>
+          <a href="#" class="index-cta__link" id="indexCtaLink" data-cursor="View">
+            <span class="index-cta__text h1 text-uppercase">The Index</span>
+            <span class="index-cta__img-wrapper">
+              <img src="img/office-1.jpg" alt="" class="index-cta__img">
+            </span>
+            <span class="index-cta__arrow">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 32h48M40 16l16 16-16 16" stroke="currentColor" stroke-width="3"/>
+              </svg>
+            </span>
+          </a>
+        </section>
+
+      </div>
+
+      <!-- ===== INDEX VIEW ===== -->
+      <div id="indexView" class="work-view work-index">
+
+        <div class="work-index__header gutters">
+          <h2 class="work-index__heading h1 text-uppercase anim-word" data-reveal>The Index</h2>
+          <div class="work-index__filters" data-reveal>
+            <button class="work-index__filter-btn active" data-filter="all">All</button>
+            <button class="work-index__filter-btn" data-filter="hospitality">Hospitality</button>
+            <button class="work-index__filter-btn" data-filter="retail">Retail</button>
+            <button class="work-index__filter-btn" data-filter="workplace">Workplace</button>
+            <button class="work-index__filter-btn" data-filter="exhibition">Exhibition</button>
+            <button class="work-index__filter-btn" data-filter="brand-identity">Brand Identity</button>
+            <button class="work-index__filter-btn" data-filter="health-leisure">Health &amp; Leisure</button>
+            <button class="work-index__filter-btn" data-filter="social-gaming">Social Gaming</button>
+            <button class="work-index__filter-btn" data-filter="heritage">Heritage</button>
+            <button class="work-index__filter-btn" data-filter="beauty">Beauty</button>
+            <button class="work-index__filter-btn" data-filter="infrastructure">Infrastructure</button>
+          </div>
+        </div>
+
+        <!-- Hover Image (follows cursor, right side) -->
+        <div class="work-index__hover-img" id="indexHoverImg">
+          <img src="" alt="">
+        </div>
+
+        <div class="work-index__list gutters">
+          <!-- Column Headers -->
+          <div class="work-index-item work-index-item--header">
+            <span class="work-index-item__name body-xs text-uppercase">Project</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Type</span>
+            <span class="work-index-item__location body-xs text-uppercase">Location</span>
+            <span class="work-index-item__size body-xs text-uppercase">Size</span>
+          </div>
+
+          <a href="work-detail.html" class="work-index-item" data-category="workplace" data-cursor="View" data-img="img/office-3.jpg">
+            <span class="work-index-item__name h4">Angel Square</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Co-Working Space</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase">3800 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="exhibition retail heritage" data-cursor="View" data-img="img/case-1.jpg">
+            <span class="work-index-item__name h4">Barbour</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Brand Exhibition</span>
+            <span class="work-index-item__location body-xs text-uppercase">Global</span>
+            <span class="work-index-item__size body-xs text-uppercase">60&ndash;100 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="workplace" data-cursor="View" data-img="img/office-1.jpg">
+            <span class="work-index-item__name h4">B_Fit</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Fitness Centre</span>
+            <span class="work-index-item__location body-xs text-uppercase">Saudi Arabia</span>
+            <span class="work-index-item__size body-xs text-uppercase">4500 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="social-gaming hospitality" data-cursor="View" data-img="img/office-2.jpg">
+            <span class="work-index-item__name h4">Birdies Crazy Golf</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Crazy Golf</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase">480&ndash;570 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="workplace" data-cursor="View" data-img="img/office-1.jpg">
+            <span class="work-index-item__name h4">Bite</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Office Space</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase">1125 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="social-gaming hospitality" data-cursor="View" data-img="img/case-hero.jpg">
+            <span class="work-index-item__name h4">Bounce Battersea</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Ping Pong Bar</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase">750 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="social-gaming" data-cursor="View" data-img="img/services-hover-1.jpg">
+            <span class="work-index-item__name h4">Bunkers</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Entertainment</span>
+            <span class="work-index-item__location body-xs text-uppercase">Romford</span>
+            <span class="work-index-item__size body-xs text-uppercase">2000 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="hospitality" data-cursor="View" data-img="img/featured-2.jpg">
+            <span class="work-index-item__name h4">Cha Cha Teng</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Tea House</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase">400 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="retail" data-cursor="View" data-img="img/featured-1.jpg">
+            <span class="work-index-item__name h4">Commodity</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Retail Concept</span>
+            <span class="work-index-item__location body-xs text-uppercase">NYC, USA</span>
+            <span class="work-index-item__size body-xs text-uppercase"></span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="hospitality" data-cursor="View" data-img="img/services-hover-2.jpg">
+            <span class="work-index-item__name h4">Counter House</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Restaurant</span>
+            <span class="work-index-item__location body-xs text-uppercase">Manchester</span>
+            <span class="work-index-item__size body-xs text-uppercase">225 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="beauty retail" data-cursor="View" data-img="img/services-hover-3.jpg">
+            <span class="work-index-item__name h4">Etat Libre D&rsquo;Orange</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Perfumery</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase">40 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="workplace" data-cursor="View" data-img="img/case-2.jpg">
+            <span class="work-index-item__name h4">Freuds</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Creative Agency</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase">3500 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="retail" data-cursor="View" data-img="img/case-2.jpg">
+            <span class="work-index-item__name h4">Harrods Toy Kingdom</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Toy Department</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase">350 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="hospitality" data-cursor="View" data-img="img/case-3.jpg">
+            <span class="work-index-item__name h4">Jollibee</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Restaurant Chain</span>
+            <span class="work-index-item__location body-xs text-uppercase">Asia</span>
+            <span class="work-index-item__size body-xs text-uppercase">230 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="hospitality" data-cursor="View" data-img="img/featured-1.jpg">
+            <span class="work-index-item__name h4">Kudos</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Restaurant Bar</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase">680 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="retail" data-cursor="View" data-img="img/case-3.jpg">
+            <span class="work-index-item__name h4">Level Shoe District</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Luxury Retail</span>
+            <span class="work-index-item__location body-xs text-uppercase">Dubai</span>
+            <span class="work-index-item__size body-xs text-uppercase">9000 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="retail" data-cursor="View" data-img="img/featured-2.jpg">
+            <span class="work-index-item__name h4">Lotte Dongtang</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Department Store</span>
+            <span class="work-index-item__location body-xs text-uppercase">South Korea</span>
+            <span class="work-index-item__size body-xs text-uppercase">16000 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="health-leisure" data-cursor="View" data-img="img/services-hover-3.jpg">
+            <span class="work-index-item__name h4">Margaret Dabbs</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Wellness Spa</span>
+            <span class="work-index-item__location body-xs text-uppercase">Doha, Qatar</span>
+            <span class="work-index-item__size body-xs text-uppercase">232 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="hospitality" data-cursor="View" data-img="img/services-hover-1.jpg">
+            <span class="work-index-item__name h4">Meat Liquor</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Restaurant Chain</span>
+            <span class="work-index-item__location body-xs text-uppercase">UK</span>
+            <span class="work-index-item__size body-xs text-uppercase">180&ndash;500 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="workplace" data-cursor="View" data-img="img/office-2.jpg">
+            <span class="work-index-item__name h4">Optimo</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Workspace</span>
+            <span class="work-index-item__location body-xs text-uppercase">Saudi Arabia</span>
+            <span class="work-index-item__size body-xs text-uppercase">4500 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="hospitality retail" data-cursor="View" data-img="img/case-hero.jpg">
+            <span class="work-index-item__name h4">Or&eacute;e</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Bakery Caf&eacute;</span>
+            <span class="work-index-item__location body-xs text-uppercase">UK</span>
+            <span class="work-index-item__size body-xs text-uppercase">80&ndash;180 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="exhibition" data-cursor="View" data-img="img/case-1.jpg">
+            <span class="work-index-item__name h4">Pass on Plastic</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Exhibition</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase">119 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="retail" data-cursor="View" data-img="img/services-hover-2.jpg">
+            <span class="work-index-item__name h4">Peter Reed</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Boutique</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase">20 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="hospitality social-gaming" data-cursor="View" data-img="img/services-hover-3.jpg">
+            <span class="work-index-item__name h4">Queens Skate Dine Bowl</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Entertainment</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase">460 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="retail" data-cursor="View" data-img="img/services-hover-1.jpg">
+            <span class="work-index-item__name h4">Russell &amp; Bromley</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Shoe Retailer</span>
+            <span class="work-index-item__location body-xs text-uppercase">UK</span>
+            <span class="work-index-item__size body-xs text-uppercase">150&ndash;200 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="health-leisure brand-identity" data-cursor="View" data-img="img/services-hover-3.jpg">
+            <span class="work-index-item__name h4">Shakti</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Wellness Brand</span>
+            <span class="work-index-item__location body-xs text-uppercase">Global</span>
+            <span class="work-index-item__size body-xs text-uppercase"></span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="retail" data-cursor="View" data-img="img/featured-2.jpg">
+            <span class="work-index-item__name h4">Spencer Hart</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Tailoring</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase">25 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="workplace" data-cursor="View" data-img="img/office-3.jpg">
+            <span class="work-index-item__name h4">The Brewery</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Office Conversion</span>
+            <span class="work-index-item__location body-xs text-uppercase">Oxfordshire</span>
+            <span class="work-index-item__size body-xs text-uppercase">468 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="workplace" data-cursor="View" data-img="img/office-1.jpg">
+            <span class="work-index-item__name h4">The Office Group</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Co-Working</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase">885&ndash;1040 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="retail heritage" data-cursor="View" data-img="img/case-hero.jpg">
+            <span class="work-index-item__name h4">Thomas Goode</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Luxury Retail</span>
+            <span class="work-index-item__location body-xs text-uppercase">Mumbai</span>
+            <span class="work-index-item__size body-xs text-uppercase">110 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="retail heritage" data-cursor="View" data-img="img/featured-1.jpg">
+            <span class="work-index-item__name h4">Turnbull &amp; Asser</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Tailoring</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase">110 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="health-leisure hospitality" data-cursor="View" data-img="img/services-hover-3.jpg">
+            <span class="work-index-item__name h4">Ulu Cliffhouse</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Beach Club</span>
+            <span class="work-index-item__location body-xs text-uppercase">Bali</span>
+            <span class="work-index-item__size body-xs text-uppercase">4750 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="retail" data-cursor="View" data-img="img/featured-2.jpg">
+            <span class="work-index-item__name h4">Vertu</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Luxury Mobile</span>
+            <span class="work-index-item__location body-xs text-uppercase">Global</span>
+            <span class="work-index-item__size body-xs text-uppercase"></span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="retail heritage" data-cursor="View" data-img="img/case-1.jpg">
+            <span class="work-index-item__name h4">William &amp; Son</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Luxury Retail</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase">950 SQM</span>
+          </a>
+          <a href="work-detail.html" class="work-index-item" data-category="infrastructure" data-cursor="View" data-img="img/home-hero-1.jpg">
+            <span class="work-index-item__name h4">Luton Airport</span>
+            <span class="work-index-item__desc body-xs text-uppercase">Airport Terminal</span>
+            <span class="work-index-item__location body-xs text-uppercase">London</span>
+            <span class="work-index-item__size body-xs text-uppercase"></span>
+          </a>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="workFooter" style="background-color:#0f00b0;color:#ebebeb">
+      <div class="footer__top">
+        <div class="footer__social">
+          <a href="https://www.instagram.com/shed_design/" class="footer-link body-xs text-uppercase" data-label="Instagram" data-cursor-small target="_blank" rel="noopener">
+            <span class="footer-link__label">Instagram</span>
+          </a>
+          <a href="https://www.linkedin.com/company/shed-design/" class="footer-link body-xs text-uppercase" data-label="LinkedIn" data-cursor-small target="_blank" rel="noopener">
+            <span class="footer-link__label">LinkedIn</span>
+          </a>
+        </div>
+        <a href="index.html" class="header-logo" style="color:currentColor">
+          <svg class="header-logo__svg" viewBox="0 0 96 32" fill="currentColor">
+            <path d="m13.085 12.857-.953-.432c-3.07-1.386-4.214-2.54-4.214-4.27 0-1.894 1.437-3.327 3.347-3.327 3.198 0 4.614 2.998 5.49 5.61l.115.339 2.674-.423-.068-.415c-.489-3.01-.782-5.073-.948-6.692l-.03-.288-1.947-.528-.587-.152a15.7 15.7 0 0 0-4.091-.533c-3.321 0-6.09.934-8.012 2.702-1.782 1.636-2.76 3.961-2.76 6.544 0 4.621 3.76 6.989 7.825 8.862l.646.3c2.905 1.327 4.087 2.71 4.087 4.786 0 2.371-1.365 3.843-3.564 3.843-4.533 0-6.884-5.83-7.31-6.997l-.136-.372L0 22.192l.068.367c.272 1.522.566 2.905.82 4.127.23 1.095.447 2.13.609 3.06l.038.208.192.093c.54.27 1.45.617 2.78 1.057 1.102.363 2.943.752 4.81.752 6.723 0 11.422-3.944 11.422-9.588s-3.95-7.741-7.65-9.42zm28.806 13.38v-8.611c0-4.414-2.568-7.052-6.876-7.052-2.037 0-3.674.993-5.035 1.961V0l-.489.08-2.7.448c-2.675.449-4.989.833-6.766 1.057l-.37.047v2.313l.395.025c1.149.076 1.812.13 2.042.363.234.237.246.905.246 1.97v19.934c0 2.203-.02 2.229-2.432 2.465l-.379.038v2.478h11.87v-2.452l-.35-.06c-.71-.122-.859-.207-.935-.35-.12-.237-.128-.757-.128-1.603V15.808c.638-.495 1.22-.867 2.046-.867 1.833 0 2.22 1.67 2.22 3.07v8.446c0 .969 0 1.607-.154 1.86-.106.178-.386.267-1.203.385l-.361.051v2.46h11.74V28.74l-.37-.042c-1.972-.232-2.01-.237-2.01-2.465v.005Zm19.979-8.18c0-4.41-4.01-7.48-7.608-7.48-6.035 0-10.946 5.036-10.946 11.226 0 5.85 4.231 9.935 10.295 9.935 1.701 0 5.324-1.061 8.097-5.044l.153-.22-1.178-1.974-.366.22c-1.607.972-2.925 1.573-4.541 1.573-1.982 0-4.73-1.87-5.006-5.378 3.951-.178 8.977-.58 9.68-.719 1.194-.224 1.42-.562 1.42-2.135zm-7.174-.453s-.09.055-.46.076l-3.393.115c.14-3.112 1.322-4.14 1.9-4.14.736 0 2.004 1.751 2.004 3.54 0 .338-.043.401-.051.41ZM86.18 27.781l-1.74-.11c-.956-.072-1.033-.076-1.033-1.734V0l-.489.08-2.691.448c-2.569.427-4.997.833-6.775 1.057l-.37.047v2.313l.396.025c1.148.076 1.811.13 2.045.363.234.237.247.905.247 1.97V10.7c-.34-.067-.689-.126-1.008-.126-3.56 0-6.787 1.302-9.083 3.665-2.059 2.118-3.134 4.9-3.028 7.834.23 6.591 5.762 9.66 9.428 9.66.655 0 1.407-.11 2.5-.896 0 0 .66-.486 1.195-.883v2.037l.532-.143c3.023-.82 6.557-1.256 8.458-1.488l1.433-.186-.008-.368v-2.03zm-10.414-.888c-.409.321-.808.473-1.31.473-.761 0-3.606-1.234-3.606-7.284s2.734-6.426 3.044-6.426c.681 0 1.276.376 1.872 1.154v12.087zm15.815-3.924c-2.492 0-4.368 1.924-4.368 4.473s1.88 4.473 4.368 4.473c2.487 0 4.414-1.88 4.414-4.473 0-2.591-1.897-4.473-4.414-4.473"/>
+          </svg>
+        </a>
+      </div>
+      <nav class="footer__nav">
+        <a href="index.html" class="footer-nav__link h4" data-cursor-small>About</a>
+        <a href="services.html" class="footer-nav__link h4" data-cursor-small>Services</a>
+        <a href="work.html" class="footer-nav__link h4" data-cursor-small>Work</a>
+        <a href="blog.html" class="footer-nav__link h4" data-cursor-small>News &amp; Views</a>
+        <a href="contact.html" class="footer-nav__link h4" data-cursor-small>Contact</a>
+      </nav>
+      <div class="footer__bottom">
+        <div class="footer__legal">
+          <a href="#" class="footer-link body-xs text-uppercase" data-label="Terms & Conditions">
+            <span class="footer-link__label">Terms &amp; Conditions</span>
+          </a>
+          <a href="#" class="footer-link body-xs text-uppercase" data-label="Privacy Policy">
+            <span class="footer-link__label">Privacy Policy</span>
+          </a>
+        </div>
+        <span class="footer__credit body-xs">Site by IJP + TA</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===== FLOATING VIEW TOGGLE ===== -->
+  <div class="work-toggle" id="workToggle">
+    <button class="work-toggle__opt is-active" data-view="featured">Featured</button>
+    <span class="work-toggle__divider">/</span>
+    <button class="work-toggle__opt" data-view="index">Index</button>
+  </div>
+
+  <!-- Scripts (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+
+  <!-- App Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/transitions.js"></script>
+  <script src="js/components.js"></script>
+</body>
+</html>

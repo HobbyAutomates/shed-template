@@ -1,0 +1,43 @@
+/* ============================================
+   BRANDING CONFIGURATION
+   Change these variables to rebrand the template
+   ============================================ */
+
+:root {
+  /* Primary Colors */
+  --brand-primary: #3B15EB;       /* Electric blue - links, accents, bullets */
+  --brand-primary-deep: #0F00B0;  /* Deep blue - services section bg */
+  --brand-accent: #FFC700;        /* Gold - hover states, active nav */
+  --brand-nav-bg: #F48502;        /* Orange - navigation overlay */
+  --brand-hover: #6CCAFF;         /* Light cyan - form focus, secondary hover */
+
+  /* Neutrals */
+  --brand-black: #000000;
+  --brand-dark: #1C1C1C;
+  --brand-gray: #A4A4A4;
+  --brand-light: #EBEBEB;
+  --brand-white: #FFFFFF;
+  --brand-cream: #FFFBEF;
+
+  /* Typography */
+  --font-heading: OwnersWeb, sans-serif;
+  --font-body: SequelWeb, sans-serif;
+  --font-serif: RecklessWeb, serif;
+
+  /* Spacing (mobile) */
+  --gutter: 0.8rem;
+  --grid-cols: 5;
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.14, 1, 0.34, 1);
+  --ease-in: cubic-bezier(1, 0, 0.65, 0.61);
+  --ease-smooth: cubic-bezier(0.43, 0.2, 0.02, 1);
+  --ease-bounce: cubic-bezier(0.9, 0, 0.1, 1);
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 0.75vw;
+    --grid-cols: 9;
+  }
+}
