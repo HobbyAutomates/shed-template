@@ -891,10 +891,15 @@
   </div>
 
   <!-- ===== FLOATING VIEW TOGGLE ===== -->
-  <div class="work-toggle" id="workToggle">
-    <button class="work-toggle__opt is-active" data-view="featured">Featured</button>
-    <span class="work-toggle__divider">/</span>
-    <button class="work-toggle__opt" data-view="index">Index</button>
+  <nav class="work-nav" id="workToggle">
+    <button class="work-nav__btn work-nav__btn--active" data-view="featured">
+      <span class="work-nav__btn-label-wrapper oh" data-label="Featured"><span class="work-nav__btn-label">Featured</span></span>
+    </button>
+    <button class="work-nav__btn" data-view="index">
+      <span class="work-nav__btn-label-wrapper oh" data-label="Index"><span class="work-nav__btn-label">Index</span></span>
+    </button>
+    <span class="work-nav__bg"></span>
+  </nav>
   </div>
 
   <!-- Scripts (CDN) -->

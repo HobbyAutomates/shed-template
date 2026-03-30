@@ -171,19 +171,28 @@ function initStickyHeader() {
 
 // ---- Work View Toggle (Featured / Index) ----
 function initViewToggle() {
-  const toggle = document.getElementById('workToggle');
-  if (!toggle) return;
+  const nav = document.getElementById('workToggle');
+  if (!nav) return;
 
-  const opts = toggle.querySelectorAll('.work-toggle__opt');
+  const btns = nav.querySelectorAll('.work-nav__btn');
+  const bg = nav.querySelector('.work-nav__bg');
   const featuredView = document.getElementById('featuredView');
   const indexView = document.getElementById('indexView');
   const headerPillLabel = document.getElementById('headerPillLabel');
-  const pageWrapper = document.getElementById('workPageWrapper');
   const body = document.body;
+  const header = document.getElementById('workHeader');
 
   if (!featuredView || !indexView) return;
 
-  const header = document.getElementById('workHeader');
+  // Position the sliding background behind the active button
+  function updateBg(activeBtn) {
+    if (!bg || !activeBtn) return;
+    bg.style.width = activeBtn.offsetWidth + 'px';
+    bg.style.transform = 'translateX(' + activeBtn.offsetLeft + 'px)';
+  }
+
+  // Initialize bg position on the featured button
+  updateBg(btns[0]);
 
   function switchView(view) {
     if (view === 'index') {
@@ -192,14 +201,21 @@ function initViewToggle() {
       // Slide-in animation: start off-screen, then animate in
       indexView.classList.add('is-entering');
       indexView.classList.add('is-active');
-      // Force reflow, then remove is-entering to trigger transition
-      indexView.offsetHeight;
+      indexView.offsetHeight; // force reflow
       indexView.classList.remove('is-entering');
 
       if (headerPillLabel) headerPillLabel.textContent = 'The Index';
       if (header) header.classList.add('header--index-visible');
       body.style.backgroundColor = '#0f00b0';
       body.style.color = '#ebebeb';
+
+      // Toggle nav styling
+      btns.forEach((b) => {
+        b.classList.toggle('work-nav__btn--active', b.dataset.view === 'index');
+        b.classList.toggle('work-nav__btn--index', b.dataset.view === 'index');
+      });
+      if (bg) bg.classList.add('work-nav__bg--toggled');
+      updateBg(nav.querySelector('[data-view="index"]'));
     } else {
       indexView.classList.remove('is-active');
       featuredView.classList.add('is-active');
@@ -207,18 +223,23 @@ function initViewToggle() {
       if (header) header.classList.remove('header--index-visible');
       body.style.backgroundColor = '';
       body.style.color = '';
+
+      btns.forEach((b) => {
+        b.classList.toggle('work-nav__btn--active', b.dataset.view === 'featured');
+        b.classList.remove('work-nav__btn--index');
+      });
+      if (bg) bg.classList.remove('work-nav__bg--toggled');
+      updateBg(nav.querySelector('[data-view="featured"]'));
     }
 
-    opts.forEach((o) => {
-      o.classList.toggle('is-active', o.dataset.view === view);
+    // Scroll to top — use requestAnimationFrame to ensure view is rendered first
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
     });
-
-    // Scroll to top on view switch
-    window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
-  opts.forEach((opt) => {
-    opt.addEventListener('click', () => switchView(opt.dataset.view));
+  btns.forEach((btn) => {
+    btn.addEventListener('click', () => switchView(btn.dataset.view));
   });
 
   // Index CTA link (at bottom of featured grid)
@@ -242,6 +263,12 @@ function initViewToggle() {
     } else {
       switchView('featured');
     }
+  });
+
+  // Re-position bg on resize
+  window.addEventListener('resize', () => {
+    const active = nav.querySelector('.work-nav__btn--active');
+    updateBg(active);
   });
 }
 
