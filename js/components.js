@@ -205,8 +205,8 @@ function initViewToggle() {
       featuredView.classList.add('is-active');
       if (headerPillLabel) headerPillLabel.textContent = 'Featured Projects';
       if (header) header.classList.remove('header--index-visible');
-      body.style.backgroundColor = '#141414';
-      body.style.color = '#A4A4A4';
+      body.style.backgroundColor = '';
+      body.style.color = '';
     }
 
     opts.forEach((o) => {
@@ -237,7 +237,7 @@ function initIndexHover() {
   if (!hoverImg) return;
 
   const img = hoverImg.querySelector('img');
-  const items = document.querySelectorAll('.work-index-item:not(.work-index-item--header)');
+  const items = document.querySelectorAll('.work-index-item');
 
   if (items.length === 0) return;
 

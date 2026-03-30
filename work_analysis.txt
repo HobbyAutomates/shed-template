@@ -1,0 +1,679 @@
+====================================================================================================
+SHED.DESIGN /WORK PAGE - COMPLETE ANALYSIS
+Scraped: 2026-03-30
+Source: https://shed.design/work
+====================================================================================================
+
+================================================================================
+1. PAGE METADATA & SEO
+================================================================================
+Page Title: Work
+SEO Title: Work
+SEO Description: Select projects from the diverse range of designs we have developed
+  and completed across retail, hospitality, workplace, exhibition and brand identity sectors.
+Header Title (top bar pill): Featured Projects
+Index Header Title: Body of work
+Index Title: The Index
+Case Studies Cap (grid limit): 15
+Total Projects in CMS: 35
+
+================================================================================
+2. HERO SECTION
+================================================================================
+Hero Title: The Work
+Hero Title Tag: <h3> with class 'base-hero__title h3'
+Hero Subtitle: Select projects from the diverse range we have had the pleasure of
+  delivering over the past 25 years.
+Subtitle Tag: <p> with class 'base-hero__subtitle p2-alt'
+Subtitle Font: RecklessWeb (serif) - the 'alt' font family
+
+================================================================================
+3. WORK NAV (Floating Toggle)
+================================================================================
+Fixed bottom nav with two toggle buttons:
+  - 'Featured' (shows the grid view, active by default)
+  - 'Index' (shows the full alphabetical index)
+Class: .work-nav (position: fixed, bottom, centered)
+Background: white with dark pill slider
+Active state: filled dark background with white text
+Index state: blue (#0f00b0) background overlay
+
+================================================================================
+4. FILTER CATEGORIES (in Index view)
+================================================================================
+Filter buttons shown in .nav-filters component (centered, wrapping):
+
+   1. All
+   2. Hospitality
+   3. Retail
+   4. Workplace
+   5. Exhibition
+   6. Brand Identity
+   7. Health & Leisure
+   8. Social Gaming
+   9. Heritage
+  10. Beauty
+  11. Infrastructure
+
+Sector slug -> Display name mapping:
+  beauty                    -> Beauty
+  brand                     -> Brand Identity
+  competitive-gaming        -> Social Gaming
+  exhibition                -> Exhibition
+  health-leisure            -> Health & Leisure
+  heritage                  -> Heritage
+  hospitality               -> Hospitality
+  infrastructure            -> Infrastructure
+  retail                    -> Retail
+  workplace                 -> Workplace
+
+================================================================================
+5. GRID LAYOUT PATTERN
+================================================================================
+Grid class: .list--cols-3 .list
+CSS: grid-template-columns: repeat(3, 1fr)
+Column gap: 0.75vw
+Row gap: 5.875vw
+
+IMPORTANT: ALL 15 items are EQUAL WIDTH (each spans 1 column).
+There are NO wide/double-width items. The grid is a uniform 3-column layout.
+Each .list-item has: grid-column: span 1
+
+Grid arrangement (5 rows x 3 columns):
+  Row 1: [Luton Airport]      [Lotte Dongtang]       [Ulu Cliffhouse]
+  Row 2: [Russell & Bromley]   [Shakti]               [Jollibee]
+  Row 3: [Meat Liquor]         [Angel Square]         [Harrods Toy Kingdom]
+  Row 4: [Spencer Hart]        [Bounce Battersea]     [Level Shoe District]
+  Row 5: [Birdies Crazy Golf]  [Barbour]              [Commodity]
+
+Card aspect ratio: 374/231 (mobile), 517/321 (desktop ~1.61:1)
+Image placeholder: black SVG rect matching card dimensions
+Lazy loading: Images use placeholder src with JS-loaded srcset
+
+================================================================================
+6. FEATURED PROJECTS - COMPLETE DATA (in grid order)
+================================================================================
+
+--- [ 1] Luton Airport ---
+  Slug: luton-airport
+  URL: /work/luton-airport
+  Description: Helping a busy airport to embrace and express their difference.
+  Tags (display): Infrastructure, Brand Identity
+  Category Slugs: infrastructure, brand
+  Sector (index view): Infrastructure
+  Location: London, Uk
+  Area: 
+  Main Media: VIDEO
+  Has Hover Image: NO
+  Hero Image URL: https://www.datocms-assets.com/133654/1768307536-shed_lla_brand_lr.jpg
+  Hero Video URL: https://player.vimeo.com/progressive_redirect/playback/1153931013/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&signature=c7407ec030ef6d9dd6616eef1cbd6a88ec8632024bfe3df8ad296c78c82236d9
+  Index/Hover Image URL: https://www.datocms-assets.com/133654/1768307423-shed_lla_stationary_lr.jpg
+
+--- [ 2] Lotte Dongtang ---
+  Slug: lotte-dongtang
+  URL: /work/lotte-dongtang
+  Description: Creating a retailtainment destination with three floors of fashion retail.
+  Tags (display): Retail
+  Category Slugs: retail
+  Sector (index view): Three floors of fashion retail
+  Location: Dongtan, South Korea
+  Area: 16000  sqm
+  Main Media: IMAGE
+  Has Hover Image: YES
+  Hero Image URL: https://www.datocms-assets.com/133654/1731086506-shed-lotte-dongtan-2613-web.jpg
+  Index/Hover Image URL: https://www.datocms-assets.com/133654/1731316741-shed-lotte-dongtan-1264-2.jpg
+
+--- [ 3] Ulu Cliffhouse ---
+  Slug: ulu-cliffhouse
+  URL: /work/ulu-cliffhouse
+  Description: Building a world class destination from the rock-face up.
+  Tags (display): Hospitality, Health & Leisure
+  Category Slugs: hospitality, health-leisure
+  Sector (index view): World class beach club
+  Location: Bali, Indonesia
+  Area: 4750 sqm
+  Main Media: VIDEO
+  Has Hover Image: NO
+  Hero Image URL: https://www.datocms-assets.com/133654/1726583171-2017-09-07-photo-00000256.jpg
+  Index/Hover Image URL: https://www.datocms-assets.com/133654/1738684081-shed_ulu_08-1.jpg
+
+--- [ 4] Russell & Bromley ---
+  Slug: russell-bromley
+  URL: /work/russell-bromley
+  Description: Shaping the next chapter of the great British shoe store.
+  Tags (display): Retail
+  Category Slugs: retail
+  Sector (index view): British Shoe Store
+  Location: Various, UK
+  Area: 150 - 200 sqm
+  Main Media: IMAGE
+  Has Hover Image: YES
+  Hero Image URL: https://www.datocms-assets.com/133654/1731332428-russell-bromley-hampstead_017-1.jpg
+  Index/Hover Image URL: https://www.datocms-assets.com/133654/1738684441-russell-bromley-hampstead_016.jpg
+
+--- [ 5] Shakti ---
+  Slug: shakti
+  URL: /work/shakti
+  Description: Reframing an ancient ritual for modern life.
+  Tags (display): Brand Identity, Health & Leisure
+  Category Slugs: brand, health-leisure
+  Sector (index view): Acupressure and wellbeing
+  Location: Global
+  Area: 
+  Main Media: IMAGE
+  Has Hover Image: YES
+  Hero Image URL: https://www.datocms-assets.com/133654/1747126433-shakti_cs_hero_1600x900_3.jpg
+  Index/Hover Image URL: https://www.datocms-assets.com/133654/1746546929-shakti_carousel_4_870x1016.jpg
+
+--- [ 6] Jollibee ---
+  Slug: jollibee
+  URL: /work/jollibee
+  Description: Refreshing a brand to put a smile at the heart of everything they do.
+  Tags (display): Hospitality
+  Category Slugs: hospitality
+  Sector (index view): Fast food served with a smile
+  Location: Various, Asia
+  Area: 230 sqm
+  Main Media: IMAGE
+  Has Hover Image: YES
+  Hero Image URL: https://www.datocms-assets.com/133654/1746692547-shed-jollibee-lr-05.jpg
+  Index/Hover Image URL: https://www.datocms-assets.com/133654/1746692619-shed-jollibee-lr-12.jpg
+
+--- [ 7] Meat Liquor ---
+  Slug: meat-liquor
+  URL: /work/meat-liquor
+  Description: Creators of the original bad boy bohemoth.
+  Tags (display): Hospitality
+  Category Slugs: hospitality
+  Sector (index view): Dive Burger Bar
+  Location: Various, UK
+  Area: 180 - 500 sqm
+  Main Media: VIDEO
+  Has Hover Image: NO
+  Hero Image URL: https://www.datocms-assets.com/133654/1736778932-ch2b9724.jpg
+  Index/Hover Image URL: https://www.datocms-assets.com/133654/1736849617-6c1a5240.jpg
+
+--- [ 8] Angel Square ---
+  Slug: angel-square
+  URL: /work/angel-square
+  Description: Redefining office space with a design-led approach.
+  Tags (display): Workplace
+  Category Slugs: workplace
+  Sector (index view): Co-working & office space
+  Location: Angel Square, London
+  Area: 3800 sqm
+  Main Media: IMAGE
+  Has Hover Image: YES
+  Hero Image URL: https://www.datocms-assets.com/133654/1731077092-shed_angelsq_01765-1.jpg
+  Index/Hover Image URL: https://www.datocms-assets.com/133654/1731079293-shed_angelsq_01742-3.jpg
+
+--- [ 9] Harrods Toy Kingdom ---
+  Slug: harrods-toy-kingdom
+  URL: /work/harrods-toy-kingdom
+  Description: Breaking gender stereotypes with an immersive retail wonderland.
+  Tags (display): Retail
+  Category Slugs: retail
+  Sector (index view): Iconic Toy Department
+  Location: Harrods, London
+  Area: 350 sqm
+  Main Media: IMAGE
+  Has Hover Image: YES
+  Hero Image URL: https://www.datocms-assets.com/133654/1718407911-harrods-toy-kingdom-hero.jpg
+  Index/Hover Image URL: https://www.datocms-assets.com/133654/1731340976-shed_ht_11.jpg
+
+--- [10] Spencer Hart ---
+  Slug: spencer-hart
+  URL: /work/spencer-hart
+  Description: Translating Nick Hart’s rich and varied ‘out there’ world into the brand’s first flagship store.
+  Tags (display): Retail
+  Category Slugs: retail
+  Sector (index view): Modern British Tailoring
+  Location: Brook St, London
+  Area: 25 sqm
+  Main Media: IMAGE
+  Has Hover Image: YES
+  Hero Image URL: https://www.datocms-assets.com/133654/1733140004-shed_spencer_hart_07.jpg
+  Index/Hover Image URL: https://www.datocms-assets.com/133654/1733140810-shed_spencer_hart_02.jpg
+
+--- [11] Bounce Battersea ---
+  Slug: bounce
+  URL: /work/bounce
+  Description: Staying ahead of the game by playing to sporting origins.
+  Tags (display): Hospitality, Social  Gaming
+  Category Slugs: hospitality, competitive-gaming
+  Sector (index view): Ping Pong Bar
+  Location: Battersea, London
+  Area: 750 sqm
+  Main Media: VIDEO
+  Has Hover Image: NO
+  Hero Image URL: https://www.datocms-assets.com/133654/1727100997-krishumphreysphotography-c-44.jpg
+  Index/Hover Image URL: https://www.datocms-assets.com/133654/1738684761-krishumphreysphotography-c-38-1.jpg
+
+--- [12] Level Shoe District ---
+  Slug: level-shoe-district
+  URL: /work/level-shoe-district
+  Description: The world’s biggest shoe store, in the world’s mega mall.
+  Tags (display): Retail
+  Category Slugs: retail
+  Sector (index view): The worlds biggest shoe store
+  Location: Dubai Mall
+  Area: 9000 sqm
+  Main Media: IMAGE
+  Has Hover Image: YES
+  Hero Image URL: https://www.datocms-assets.com/133654/1736517470-shed_lsd_130122_6370-2.jpg
+  Index/Hover Image URL: https://www.datocms-assets.com/133654/1736524321-c-level-shoe-district-2-2048x1280-3.jpg
+
+--- [13] Birdies Crazy Golf ---
+  Slug: birdies-crazy-golf
+  URL: /work/birdies-crazy-golf
+  Description: Kaleidoscopic. Luminous. Surreal. Crazy golf just got crazier!
+  Tags (display): Social  Gaming, Hospitality
+  Category Slugs: competitive-gaming, hospitality
+  Sector (index view): Kalidescopic Crazy Golf
+  Location: Various, London
+  Area: 480 - 570 sqm
+  Main Media: IMAGE
+  Has Hover Image: YES
+  Hero Image URL: https://www.datocms-assets.com/133654/1718407612-birdies-battersea-hero.jpg
+  Index/Hover Image URL: https://www.datocms-assets.com/133654/1738685029-10360_07861.jpg
+
+--- [14] Barbour ---
+  Slug: barbour
+  URL: /work/barbour
+  Description: Bringing seasonal brand campaigns to life at Europe&#39;s largest, leading fashion fairs.
+  Tags (display): Exhibition, Retail, Heritage
+  Category Slugs: exhibition, retail, heritage
+  Sector (index view): Fashion Expo
+  Location: Global
+  Area: 60 - 100 sqm
+  Main Media: IMAGE
+  Has Hover Image: YES
+  Hero Image URL: https://www.datocms-assets.com/133654/1738937951-mg_3435.jpg
+  Index/Hover Image URL: https://www.datocms-assets.com/133654/1738938245-barbour-and-the-royal-warrants-2.jpg
+
+--- [15] Commodity ---
+  Slug: commodity
+  URL: /work/commodity
+  Description: Making the exceptional accessible.
+  Tags (display): Beauty, Retail
+  Category Slugs: beauty, retail
+  Sector (index view): Retail
+  Location: NYC, USA
+  Area: 
+  Main Media: IMAGE
+  Has Hover Image: NO
+  Hero Image URL: https://www.datocms-assets.com/133654/1757075953-shed-commodity-01.jpg
+  Index/Hover Image URL: https://www.datocms-assets.com/133654/1757075953-shed-commodity-01.jpg
+
+================================================================================
+7. ALL PROJECTS - INDEX VIEW (alphabetical order as rendered)
+================================================================================
+
+The Index is displayed in a blue (#0f00b0) overlay panel with light gray (#ebebeb) text.
+Each item shows: Title | Sector | Location | Area | 'View Project' link
+On desktop, a sticky image panel (right side) shows project image on hover.
+
+   1. Commodity                 | Retail                              | NYC, USA                  |                  [FEATURED]
+   2. Angel Square              | Co-working & office space           | Angel Square, London      | 3800 sqm         [FEATURED]
+   3. Barbour                   | Fashion Expo                        | Global                    | 60 - 100 sqm     [FEATURED]
+   4. B_Fit                     | Smart Gym                           | Various, Saudi Arabia     | 4500 sqm       
+   5. Birdies Crazy Golf        | Kalidescopic Crazy Golf             | Various, London           | 480 - 570 sqm    [FEATURED]
+   6. Bite                      | A modern workplace                  | London, UK                | 1125 sqm       
+   7. Bounce Battersea          | Ping Pong Bar                       | Battersea, London         | 750 sqm          [FEATURED]
+   8. Bunkers                   | Dystopian Social Gaming             | Romford, UK               | 2000 sqm       
+   9. Cha Cha Teng              | Hong Kong Style Restaurant          | Holborn, London           | 400 sqm        
+  10. The Counter House         | Local Bar & Eatery                  | Ancoats, Manchester       | 225 sqm        
+  11. Etat Libre D'Orange       | Experimental Fragrence Lab          | Redchurch St, London      | 40 sqm         
+  12. Freuds                    | Office meets members club           | London, Uk                | 3500 sqm       
+  13. Jollibee                  | Fast food served with a smile       | Various, Asia             | 230 sqm          [FEATURED]
+  14. Harrods Toy Kingdom       | Iconic Toy Department               | Harrods, London           | 350 sqm          [FEATURED]
+  15. Kudos                     | A home from home                    | Islington, London         | 680 sqm        
+  16. Level Shoe District       | The worlds biggest shoe store       | Dubai Mall                | 9000 sqm         [FEATURED]
+  17. Lotte Dongtang            | Three floors of fashion retail      | Dongtan, South Korea      | 16000  sqm       [FEATURED]
+  18. Margaret Dabbs            | Luxury Hand & Nail Spa              | Doha, Qatar               | 232 sqm        
+  19. Meat Liquor               | Dive Burger Bar                     | Various, UK               | 180 - 500 sqm    [FEATURED]
+  20. Optimo                    | Members club meets gym              | Various, Saudi Arabia     | 4500 sqm       
+  21. Orée                      | Bolangerie patisserie               | Various, UK               | 80 - 180 sqm   
+  22. Pass on Plastic           | Pop-up Exhibition                   | Soho, London              | 119 sqm        
+  23. Peter Reed                | Retail Concession & Brand Book      | Harrods, London UK        | 20 sqm         
+  24. Queens Skate Dine Bowl    | Bowling, Ice Rink & Bar             | London, UK                | 460 sqm        
+  25. Russell & Bromley         | British Shoe Store                  | Various, UK               | 150 - 200 sqm    [FEATURED]
+  26. Shakti                    | Acupressure and wellbeing           | Global                    |                  [FEATURED]
+  27. Spencer Hart              | Modern British Tailoring            | Brook St, London          | 25 sqm           [FEATURED]
+  28. The Brewery               | out of town workplace               | Oxfordshire, UK           | 468 sqm        
+  29. The Office Group          | A suite of projects                 | London, UK                | 885 - 1040 sqm 
+  30. Thomas Goode              | Royal Warrant Tableware             | Mumbai, India             | 110 sqm        
+  31. Turnbull & Asser          | Royal Warrant Shirtmaker            | Davis St, London          | 110 sqm        
+  32. Ulu Cliffhouse            | World class beach club              | Bali, Indonesia           | 4750 sqm         [FEATURED]
+  33. Vertu                     | Luxury tech retail                  | Global roll out           | Various        
+  34. William & Son             | Heritage Lifestyle Store            | Bruton Street, London     | 950 sqm        
+  35. Luton Airport             | Infrastructure                      | London, Uk                |                  [FEATURED]
+
+================================================================================
+8. ALL IMAGE URLs FROM DATOCMS CDN
+================================================================================
+
+CDN Base: https://www.datocms-assets.com/133654/
+
+--- FEATURED PROJECTS ---
+
+  Luton Airport:
+    Hero:  https://www.datocms-assets.com/133654/1768307536-shed_lla_brand_lr.jpg
+    Index: https://www.datocms-assets.com/133654/1768307423-shed_lla_stationary_lr.jpg
+    Video: https://player.vimeo.com/progressive_redirect/playback/1153931013/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&signature=c7407ec030ef6d9dd6616eef1cbd6a88ec8632024bfe3df8ad296c78c82236d9
+
+  Lotte Dongtang:
+    Hero:  https://www.datocms-assets.com/133654/1731086506-shed-lotte-dongtan-2613-web.jpg
+    Index: https://www.datocms-assets.com/133654/1731316741-shed-lotte-dongtan-1264-2.jpg
+
+  Ulu Cliffhouse:
+    Hero:  https://www.datocms-assets.com/133654/1726583171-2017-09-07-photo-00000256.jpg
+    Index: https://www.datocms-assets.com/133654/1738684081-shed_ulu_08-1.jpg
+
+  Russell & Bromley:
+    Hero:  https://www.datocms-assets.com/133654/1731332428-russell-bromley-hampstead_017-1.jpg
+    Index: https://www.datocms-assets.com/133654/1738684441-russell-bromley-hampstead_016.jpg
+
+  Shakti:
+    Hero:  https://www.datocms-assets.com/133654/1747126433-shakti_cs_hero_1600x900_3.jpg
+    Index: https://www.datocms-assets.com/133654/1746546929-shakti_carousel_4_870x1016.jpg
+
+  Jollibee:
+    Hero:  https://www.datocms-assets.com/133654/1746692547-shed-jollibee-lr-05.jpg
+    Index: https://www.datocms-assets.com/133654/1746692619-shed-jollibee-lr-12.jpg
+
+  Meat Liquor:
+    Hero:  https://www.datocms-assets.com/133654/1736778932-ch2b9724.jpg
+    Index: https://www.datocms-assets.com/133654/1736849617-6c1a5240.jpg
+
+  Angel Square:
+    Hero:  https://www.datocms-assets.com/133654/1731077092-shed_angelsq_01765-1.jpg
+    Index: https://www.datocms-assets.com/133654/1731079293-shed_angelsq_01742-3.jpg
+
+  Harrods Toy Kingdom:
+    Hero:  https://www.datocms-assets.com/133654/1718407911-harrods-toy-kingdom-hero.jpg
+    Index: https://www.datocms-assets.com/133654/1731340976-shed_ht_11.jpg
+
+  Spencer Hart:
+    Hero:  https://www.datocms-assets.com/133654/1733140004-shed_spencer_hart_07.jpg
+    Index: https://www.datocms-assets.com/133654/1733140810-shed_spencer_hart_02.jpg
+
+  Bounce Battersea:
+    Hero:  https://www.datocms-assets.com/133654/1727100997-krishumphreysphotography-c-44.jpg
+    Index: https://www.datocms-assets.com/133654/1738684761-krishumphreysphotography-c-38-1.jpg
+
+  Level Shoe District:
+    Hero:  https://www.datocms-assets.com/133654/1736517470-shed_lsd_130122_6370-2.jpg
+    Index: https://www.datocms-assets.com/133654/1736524321-c-level-shoe-district-2-2048x1280-3.jpg
+
+  Birdies Crazy Golf:
+    Hero:  https://www.datocms-assets.com/133654/1718407612-birdies-battersea-hero.jpg
+    Index: https://www.datocms-assets.com/133654/1738685029-10360_07861.jpg
+
+  Barbour:
+    Hero:  https://www.datocms-assets.com/133654/1738937951-mg_3435.jpg
+    Index: https://www.datocms-assets.com/133654/1738938245-barbour-and-the-royal-warrants-2.jpg
+
+  Commodity:
+    Hero:  https://www.datocms-assets.com/133654/1757075953-shed-commodity-01.jpg
+    Index: https://www.datocms-assets.com/133654/1757075953-shed-commodity-01.jpg
+
+  --- NON-FEATURED (Index Only) ---
+
+  B_Fit:
+    Hero:  https://www.datocms-assets.com/133654/1738748741-636542322231877-1.jpg
+    Index: https://www.datocms-assets.com/133654/1739548361-1830_b_fit_design-manual_page_11-2.jpg
+
+  Bite:
+    Hero:  https://www.datocms-assets.com/133654/1737994560-shed_bite_001.jpg
+    Index: https://www.datocms-assets.com/133654/1739198613-shed_bite_019-1.jpg
+
+  Bunkers:
+    Hero:  https://www.datocms-assets.com/133654/1737020771-10842_29772.jpg
+    Index: https://www.datocms-assets.com/133654/1739548736-10842_20034.jpg
+
+  Cha Cha Teng:
+    Hero:  https://www.datocms-assets.com/133654/1736962733-shed_cct_00037-2.jpg
+    Index: https://www.datocms-assets.com/133654/1739547926-shed_cct_00571-2.jpg
+
+  The Counter House:
+    Hero:  https://www.datocms-assets.com/133654/1736853907-shed_the_counter_house_01.jpg
+    Index: https://www.datocms-assets.com/133654/1739547676-shed_the_counter_house_31-2.jpg
+
+  Etat Libre D'Orange:
+    Hero:  https://www.datocms-assets.com/133654/1736942530-shed_elo_05.jpg
+    Index: https://www.datocms-assets.com/133654/1738158469-shed_etat-libre-d-orange-product-detail-corner-tile_horizonal.jpg
+
+  Freuds:
+    Hero:  https://www.datocms-assets.com/133654/1737995500-2-dsc_0114.jpg
+    Index: https://www.datocms-assets.com/133654/1739551197-2-dsc_0114-2.jpg
+
+  Kudos:
+    Hero:  https://www.datocms-assets.com/133654/1736943733-shed_kudos_00213.jpg
+    Index: https://www.datocms-assets.com/133654/1738763852-shed_kudos_00528.jpg
+
+  Margaret Dabbs:
+    Hero:  https://www.datocms-assets.com/133654/1736942004-shed_margaret_dabbs_doha_09.jpg
+    Index: 
+
+  Queens Skate Dine Bowl:
+    Hero:  https://www.datocms-assets.com/133654/1737993244-7-scaled.jpg
+    Index: https://www.datocms-assets.com/133654/1739199977-mg_0867.jpg
+
+  Optimo:
+    Hero:  https://www.datocms-assets.com/133654/1738687567-638646635039045.jpg
+    Index: https://www.datocms-assets.com/133654/1739547384-16-1.jpg
+
+  Orée:
+    Hero:  https://www.datocms-assets.com/133654/1736942948-shed_oree_01143-1.jpg
+    Index: https://www.datocms-assets.com/133654/1738251062-shed_oree_01155-1.jpg
+
+  Pass on Plastic:
+    Hero:  https://www.datocms-assets.com/133654/1736854085-shed_passonplastic_04.jpg
+    Index: https://www.datocms-assets.com/133654/1739556469-shed_passonplastic_lowres_28-2.jpg
+
+  Peter Reed:
+    Hero:  https://www.datocms-assets.com/133654/1737993795-mg_1136.jpg
+    Index: https://www.datocms-assets.com/133654/1739547133-pr_brand-book-mock-ups_arrangement-2a.jpg
+
+  The Brewery:
+    Hero:  https://www.datocms-assets.com/133654/1738945049-brewery_image-1.jpg
+    Index: https://www.datocms-assets.com/133654/1738945009-47.jpg
+
+  The Office Group:
+    Hero:  https://www.datocms-assets.com/133654/1737991456-shed_tog_marylebone_16.jpg
+    Index: https://www.datocms-assets.com/133654/1738940372-shed_tog_marylebone_06.jpg
+
+  Thomas Goode:
+    Hero:  https://www.datocms-assets.com/133654/1736943419-shed_thomas_goode_mumbai_11-2.jpg
+    Index: https://www.datocms-assets.com/133654/1738255519-dsc7074-edit-1.jpg
+
+  Turnbull & Asser:
+    Hero:  https://www.datocms-assets.com/133654/1738753314-shed_ta_aug15_ja_0636-hr.jpg
+    Index: https://www.datocms-assets.com/133654/1738753389-shed_ta_aug15_ja_0097-hr.jpg
+
+  Vertu:
+    Hero:  https://www.datocms-assets.com/133654/1736937818-shed_v_14.jpg
+    Index: 
+
+  William & Son:
+    Hero:  https://www.datocms-assets.com/133654/1731341899-shed_ws_1234-2.jpg
+    Index: https://www.datocms-assets.com/133654/1731342410-shed_ws_60.jpg
+
+================================================================================
+9. 'THE INDEX' CTA SECTION
+================================================================================
+
+Located below the featured projects grid.
+Structure:
+  - Component: .footer-link (full-width section)
+  - Title: 'The Index' displayed as large H2 heading (OwnersWeb font, bold)
+  - Title includes a small thumbnail image inline (aspect-ratio 238/145)
+  - Arrow SVG icon at the right end
+  - Clicking opens the Index overlay panel
+  - Also accessible via the floating 'Index' nav button
+
+The Index overlay panel:
+  - Background: #0f00b0 (deep blue)
+  - Text color: #ebebeb (light gray)
+  - Title: 'The Index' (h3)
+  - Filter pills (same categories as listed above)
+  - List of all 35 projects with: label, sector, location, area, 'View Project'
+  - Desktop: sticky image panel on right (grid-column: 7/span 3)
+  - Hover effect: text turns #6ccaff (light blue)
+
+================================================================================
+10. KEY CSS DESIGN TOKENS & FONTS
+================================================================================
+
+Fonts:
+  - OwnersWeb (Bold, 600) - headings (h1-h5)
+    src: /fonts/Owners-Bold.woff, /fonts/Owners-Bold.woff2
+  - SequelWeb (Regular 400, SemiBold 500) - body text, labels, nav
+    src: /fonts/SequelSans-RomanHead.woff(2), /fonts/SequelSans-SemiBoldHead.woff(2)
+  - RecklessWeb (Book, 400) - serif accent text (.p1-alt, .p2-alt, excerpts)
+    src: /fonts/RecklessNeue-Book.woff, /fonts/RecklessNeue-Book.woff2
+
+Colors:
+  - Background: #fff (white)
+  - Text: #1c1c1c (near-black)
+  - Accent/Brand: #3b15eb (purple-blue)
+  - Index BG: #0f00b0 (deep blue)
+  - Index Text: #ebebeb (light gray)
+  - Hover (index): #6ccaff (light blue)
+  - Nav highlight: #ffc700 (yellow)
+  - Nav background: #f48502 (orange)
+  - Error: #ff4d00
+  - Image placeholder: #1c1c1c1a (10% black)
+
+Spacing:
+  - Gutters: 0.8rem (mobile), 0.75vw (desktop)
+  - Grid: 5-col mobile, 9-col desktop
+  - Border radius (pills/buttons): 1.3rem / 0.8125vw
+
+Typography Scale:
+  - h1: 10rem / 16.0625vw, line-height 0.8-0.9
+  - h2: 9rem / 12.9375vw, line-height 0.75-0.81
+  - h3: 8.5rem / 11.875vw, line-height 0.81
+  - h4: 5.6rem / 10vw, line-height 0.81
+  - h5: 5rem / 4.0625vw, line-height 0.89
+  - .p1: 2.7rem / 3.75vw
+  - .p2: 2.7rem / 2.6875vw
+  - .p3: 2.7rem / 2vw
+  - .p4: 1.6rem / 1.125vw, line-height 1.3
+  - .p1-alt: 1.8rem / 1.625vw (RecklessWeb)
+  - .p2-alt: 1.8rem / 1.5vw (RecklessWeb)
+  - .list-item__title: 1.3rem / 1vw (SequelWeb 500)
+  - .list-item__excerpt: 1.5rem / 1.125vw (RecklessWeb)
+  - .btn-label: 1.6rem / 1.1875vw
+  - .title-pill-label-small: 1rem / 0.75vw
+
+Animations:
+  - Page transitions: 1s cubic-bezier(.43,.2,.02,1)
+  - Element reveals: 0.8s cubic-bezier(.14,1,.34,1)
+  - Hover out: 0.4s cubic-bezier(1,0,.65,.61)
+  - Text split animations (word-by-word reveal, alternating translateY)
+  - Smooth scroll via Lenis library
+
+================================================================================
+11. HTML STRUCTURE SUMMARY
+================================================================================
+
+Framework: Nuxt 3 (Vue.js SSR)
+Data source: DatoCMS (headless CMS)
+Image CDN: DatoCMS Assets (www.datocms-assets.com)
+Video hosting: Vimeo (progressive redirect)
+
+Page structure:
+  <div class='page page--work'>
+    <header class='header'> (logo, nav toggle, 'Featured Projects' pill)</header>
+    <div class='work__wrapper'>
+      <section class='base-hero'> (title + subtitle)</section>
+      <div class='work__inner gutters'>
+        <ul class='list--cols-3 list'>
+          <li class='list-item'>
+            <a class='list-item__link' href='/work/{slug}'>
+              <div class='list-item__fig-wrapper'>
+                <figure class='list-item__fig list-item__fig--main'>
+                  <picture> or <video> element
+                </figure>
+                <figure class='list-item__fig list-item__fig--hover'> (optional)
+                  <picture> element
+                </figure>
+                <div class='list-item-tags--abs list-item-tags'>
+                  <span class='title-pill'>Tag Label</span>
+                </div>
+              </div>
+              <div class='list-item__content'>
+                <p class='list-item__title ttu'>
+                  Project Name
+                  <span class='list-item__excerpt'>-- Description</span>
+                </p>
+                <div class='list-item__cta-label ttu fw500'>Read more</div>
+              </div>
+            </a>
+          </li>
+          ... (15 items total)
+        </ul>
+      </div>
+      <section class='footer-link'> ('The Index' CTA)</section>
+      <footer class='footer grid'> (socials, nav, legals, credits)</footer>
+    </div>
+    <nav class='work-nav'> (Featured/Index floating toggle)</nav>
+    <div class='work-index'> (Index overlay panel - blue bg)</div>
+  </div>
+
+================================================================================
+12. MEDIA TYPE SUMMARY (Featured Grid)
+================================================================================
+
+VIDEO projects (autoplay, muted, loop - no hover image):
+   1. Luton Airport       - Vimeo progressive MP4
+   3. Ulu Cliffhouse      - Vimeo progressive MP4
+   7. Meat Liquor         - Vimeo progressive MP4
+  11. Bounce Battersea    - Vimeo progressive MP4
+
+IMAGE projects (static image + hover image on desktop):
+   2. Lotte Dongtang      (3200x1822 + hover)
+   4. Russell & Bromley   (3200x1778 + hover)
+   5. Shakti              (1600x900  + hover)
+   6. Jollibee            (2268x1276 + hover)
+   8. Angel Square        (3200x1782 + hover)
+   9. Harrods Toy Kingdom (3200x1800 + hover)
+  10. Spencer Hart        (1600x1056 + hover)
+  12. Level Shoe District (1600x910  + hover)
+  13. Birdies Crazy Golf  (1722x1012 + hover)
+  14. Barbour             (2092x1176 + hover)
+
+IMAGE project (NO hover):
+  15. Commodity           (3152x1774, no hover)
+
+Pattern: Video cards do NOT have hover images (the video itself loops).
+Image cards have a secondary hover image that fades in on mouse enter.
+Commodity is the only image card without a hover image.
+
+================================================================================
+13. RESPONSIVE IMAGE DELIVERY (DatoCMS)
+================================================================================
+
+DatoCMS responsive images use URL parameters for on-the-fly transforms:
+  Base URL: https://www.datocms-assets.com/133654/{timestamp}-{filename}.jpg
+
+  WebP srcset example:
+    ?dpr=0.25&fit=crop&fm=webp&h=1138&w=1000 250w,
+    ?dpr=0.5&fit=crop&fm=webp&h=1138&w=1000 500w,
+    ?dpr=0.75&fit=crop&fm=webp&h=1138&w=1000 750w,
+    ?fit=crop&fm=webp&h=1138&w=1000 1000w
+
+  JPEG fallback srcset:
+    ?dpr=0.25&fit=crop&h=1138&w=1000 250w,
+    ?dpr=0.5&fit=crop&h=1138&w=1000 500w,
+    ?dpr=0.75&fit=crop&h=1138&w=1000 750w,
+    ?fit=crop&h=1138&w=1000 1000w
+
+  Standard card size: w=1000, h=1138 (portrait crop for index)
+  Card images use <picture> with <source type='image/webp'> + <img> fallback
+
+====================================================================================================
+END OF ANALYSIS
+====================================================================================================

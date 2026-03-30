@@ -152,6 +152,16 @@ body {
 .font-heading { font-family: var(--font-heading); }
 .text-uppercase { text-transform: uppercase; }
 
+.p2-alt {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1.4;
+}
+@media (min-width: 1024px) {
+  .p2-alt { font-size: 1.5vw; }
+}
+
 /* --- Lenis --- */
 .lenis.lenis-stopped, .oh { overflow: hidden; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
@@ -160,6 +170,7 @@ body {
 .page-wrapper { min-height: 100lvh; position: relative; }
 .page { background-color: var(--brand-white); position: relative; }
 .page--dark { background-color: #141414; color: var(--brand-gray); }
+.page--work { background-color: var(--brand-white); color: var(--brand-dark); }
 .page--blue { color: var(--brand-primary); }
 .page--services, .page--contact, .page--privacy { color: var(--brand-primary); }
 
