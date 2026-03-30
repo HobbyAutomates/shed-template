@@ -1382,6 +1382,60 @@
   .header--index-visible { color: #fff; }
 }
 
+/* --- Next Up Section --- */
+.next-up {
+  padding: 6rem var(--gutter) 4rem;
+}
+@media (min-width: 1024px) {
+  .next-up { padding: 5vw var(--gutter) 3.125vw; }
+}
+.next-up__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  padding: 0 var(--gutter);
+}
+@media (min-width: 1024px) {
+  .next-up__header { margin-bottom: 2.5vw; }
+}
+.next-up__label {
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+}
+@media (min-width: 1024px) {
+  .next-up__label { font-size: 0.6875vw; }
+}
+.next-up__arrow {
+  display: flex;
+  align-items: center;
+  color: currentColor;
+  transition: transform 0.6s var(--ease-out);
+}
+.next-up__arrow svg {
+  height: 6rem;
+  width: 6rem;
+}
+@media (min-width: 1024px) {
+  .next-up__arrow svg {
+    height: 6.25vw;
+    width: 6.25vw;
+  }
+}
+@media (hover: hover) {
+  .next-up__arrow:hover {
+    transform: translateX(0.5rem);
+  }
+}
+.next-up__grid {
+  padding-top: 0;
+}
+
+/* --- Next Up on dark pages (case study) --- */
+.next-up--dark {
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+
 /* --- Index CTA (bottom of featured view) --- */
 .index-cta {
   padding: 6rem var(--gutter) 8rem;

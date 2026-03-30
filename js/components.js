@@ -232,9 +232,13 @@ function initViewToggle() {
       updateBg(nav.querySelector('[data-view="featured"]'));
     }
 
-    // Scroll to top — use requestAnimationFrame to ensure view is rendered first
+    // Scroll to top — use Lenis if available (it intercepts window.scrollTo)
     requestAnimationFrame(() => {
-      window.scrollTo(0, 0);
+      if (window.__lenis) {
+        window.__lenis.scrollTo(0, { immediate: true });
+      } else {
+        window.scrollTo(0, 0);
+      }
     });
   }
 

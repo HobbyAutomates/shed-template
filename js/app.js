@@ -39,6 +39,7 @@ function initCustomEases() {
 
 // ---- Lenis Smooth Scroll ----
 let lenis;
+window.__lenis = null; // Expose globally for other scripts
 function initLenis() {
   lenis = new Lenis({
     duration: 1.2,
@@ -55,6 +56,8 @@ function initLenis() {
     requestAnimationFrame(raf);
   }
   requestAnimationFrame(raf);
+
+  window.__lenis = lenis;
 
   // Connect to GSAP ScrollTrigger if available
   if (typeof ScrollTrigger !== 'undefined') {
