@@ -1545,6 +1545,39 @@
   .next-project__label { font-size: 0.6875vw; margin-bottom: 1.25vw; }
 }
 
+/* --- Back to Work Pill --- */
+.back-to-work {
+  display: flex;
+  justify-content: center;
+  padding: 4rem var(--gutter) 6rem;
+}
+@media (min-width: 1024px) {
+  .back-to-work { padding: 3.125vw var(--gutter) 5vw; }
+}
+.back-to-work__link {
+  display: inline-flex;
+}
+.back-to-work .title-pill {
+  color: var(--brand-accent-pink, #e6195e);
+}
+.back-to-work .title-pill__border rect {
+  stroke: var(--brand-accent-pink, #e6195e);
+}
+@media (hover: hover) {
+  .back-to-work__link:hover .title-pill {
+    background-color: var(--brand-accent-pink, #e6195e);
+    color: var(--brand-white);
+  }
+}
+
+/* --- Header Dark Pill (case study pages) --- */
+.header--dark .header__center-pill {
+  color: var(--brand-white);
+}
+.header--dark .title-pill__border rect {
+  stroke: rgba(255, 255, 255, 0.3);
+}
+
 /* --- Gallery Carousel (Case Studies) --- */
 .gallery-carousel {
   position: relative;
