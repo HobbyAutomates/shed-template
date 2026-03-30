@@ -1350,12 +1350,15 @@
 .header__center-pill {
   position: absolute;
   left: 50%;
-  top: 0.8rem;
+  top: 0.6rem;
   transform: translateX(-50%);
   pointer-events: none;
 }
+.header__center-pill .title-pill__border rect {
+  stroke: currentColor;
+}
 @media (min-width: 1024px) {
-  .header__center-pill { top: 0.9375vw; }
+  .header__center-pill { top: 0.75vw; }
 }
 @media (max-width: 767px) {
   .header__center-pill { display: none; }
