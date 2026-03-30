@@ -229,14 +229,28 @@ function initViewToggle() {
       switchView('index');
     });
   }
+
+  // Hash-based navigation: #index in URL auto-switches to index view
+  if (window.location.hash === '#index') {
+    switchView('index');
+  }
+
+  // Listen for hash changes (e.g. back/forward navigation)
+  window.addEventListener('hashchange', () => {
+    if (window.location.hash === '#index') {
+      switchView('index');
+    } else {
+      switchView('featured');
+    }
+  });
 }
 
 // ---- Index Hover Image ----
 function initIndexHover() {
-  const hoverImg = document.getElementById('indexHoverImg');
-  if (!hoverImg) return;
+  const assetsPanel = document.getElementById('indexHoverImg');
+  if (!assetsPanel) return;
 
-  const img = hoverImg.querySelector('img');
+  const img = assetsPanel.querySelector('img');
   const items = document.querySelectorAll('.work-index-item');
 
   if (items.length === 0) return;
@@ -250,11 +264,11 @@ function initIndexHover() {
         img.src = src;
         currentSrc = src;
       }
-      hoverImg.classList.add('is-visible');
+      assetsPanel.classList.add('is-visible');
     });
 
     item.addEventListener('mouseleave', () => {
-      hoverImg.classList.remove('is-visible');
+      assetsPanel.classList.remove('is-visible');
     });
   });
 }
