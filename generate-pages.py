@@ -1,12 +1,124 @@
-<!DOCTYPE html>
+"""Generate individual case study pages for each project in the portfolio."""
+import os, re, html
+
+BASE = os.path.dirname(os.path.abspath(__file__))
+WORK_DIR = os.path.join(BASE, "work")
+os.makedirs(WORK_DIR, exist_ok=True)
+
+# All 35 projects with metadata extracted from work.html index
+# Format: (slug, name, categories, sector, location, area, hero_img, excerpt)
+PROJECTS = [
+    ("angel-square", "Angel Square", "workplace", "Co-working & office space", "Angel Square, London", "3800 sqm", "angel-square.jpg", "Redefining office space with a design-led approach."),
+    ("barbour", "Barbour", "exhibition retail heritage", "Fashion Expo", "Global", "60 - 100 sqm", "barbour.jpg", "Bringing seasonal brand campaigns to life at Europe's largest fashion fairs."),
+    ("b-fit", "B_Fit", "health-leisure", "Smart Gym", "Various, Saudi Arabia", "4500 sqm", "b-fit.jpg", "A smart gym concept redefining fitness in the Middle East."),
+    ("birdies-crazy-golf", "Birdies Crazy Golf", "social-gaming hospitality", "Kaleidoscopic Crazy Golf", "Various, London", "480 - 570 sqm", "birdies-crazy-golf.jpg", "Kaleidoscopic. Luminous. Surreal. Crazy golf just got crazier!"),
+    ("bite", "Bite", "workplace", "A modern workplace", "London, UK", "1125 sqm", "bite.jpg", "A modern workplace designed for collaboration and creativity."),
+    ("bounce-battersea", "Bounce Battersea", "hospitality social-gaming", "Ping Pong Bar", "Battersea, London", "750 sqm", "bounce-battersea.jpg", "Staying ahead of the game by playing to sporting origins."),
+    ("bunkers", "Bunkers", "social-gaming", "Dystopian Social Gaming", "Romford, UK", "2000 sqm", "bunkers.jpg", "A dystopian social gaming experience unlike anything else."),
+    ("cha-cha-teng", "Cha Cha Teng", "hospitality", "Hong Kong Style Restaurant", "Holborn, London", "400 sqm", "cha-cha-teng.jpg", "Authentic Hong Kong dining brought to the heart of London."),
+    ("commodity", "Commodity", "beauty retail", "Retail", "NYC, USA", "", "commodity.jpg", "Making the exceptional accessible."),
+    ("counter-house", "The Counter House", "hospitality", "Local Bar & Eatery", "Ancoats, Manchester", "225 sqm", "counter-house.jpg", "A neighbourhood bar and eatery with character and warmth."),
+    ("etat-libre", "Etat Libre D'Orange", "beauty retail", "Experimental Fragrance Lab", "Redchurch St, London", "40 sqm", "etat-libre.jpg", "An experimental fragrance lab pushing the boundaries of scent."),
+    ("freuds", "Freuds", "workplace", "Office meets members club", "London, UK", "3500 sqm", "freuds.jpg", "Where the workplace meets the members club."),
+    ("harrods-toy-kingdom", "Harrods Toy Kingdom", "retail", "Iconic Toy Department", "Harrods, London", "350 sqm", "harrods-toy-kingdom.jpg", "Breaking gender stereotypes with an immersive retail wonderland."),
+    ("jollibee", "Jollibee", "hospitality", "Fast food served with a smile", "Various, Asia", "230 sqm", "jollibee.jpg", "Refreshing a brand to put a smile at the heart of everything they do."),
+    ("kudos", "Kudos", "hospitality", "A home from home", "Islington, London", "680 sqm", "kudos.jpg", "Creating a home from home in the heart of Islington."),
+    ("level-shoe-district", "Level Shoe District", "retail", "The world's biggest shoe store", "Dubai Mall", "9000 sqm", "level-shoe-district.jpg", "The world's biggest shoe store, in the world's mega mall."),
+    ("lotte-dongtang", "Lotte Dongtang", "retail", "Three floors of fashion retail", "Dongtan, South Korea", "16000 sqm", "lotte-dongtang.jpg", "Creating a retailtainment destination with three floors of fashion retail."),
+    ("luton-airport", "Luton Airport", "infrastructure brand-identity", "Infrastructure & Brand Identity", "London, UK", "", "luton-airport.jpg", "Helping a busy airport to embrace and express their difference."),
+    ("margaret-dabbs", "Margaret Dabbs", "beauty", "Luxury Hand & Nail Spa", "Doha, Qatar", "232 sqm", "margaret-dabbs.jpg", "A luxury hand and nail spa experience in the heart of Doha."),
+    ("meat-liquor", "Meat Liquor", "hospitality", "Dive Burger Bar", "Various, UK", "180 - 500 sqm", "meat-liquor.jpg", "Creators of the original bad boy behemoth."),
+    ("optimo", "Optimo", "health-leisure", "Members club meets gym", "Various, Saudi Arabia", "4500 sqm", "optimo.jpg", "Where the members club meets the gym."),
+    ("oree", "Or\u00e9e", "hospitality", "Boulangerie patisserie", "Various, UK", "80 - 180 sqm", "oree.jpg", "Artisan boulangerie patisserie with a French soul and a London heart."),
+    ("pass-on-plastic", "Pass on Plastic", "exhibition", "Pop-up Exhibition", "Soho, London", "119 sqm", "pass-on-plastic.jpg", "A pop-up exhibition raising awareness about plastic pollution."),
+    ("peter-reed", "Peter Reed", "retail", "Retail Concession & Brand Book", "Harrods, London", "20 sqm", "peter-reed.jpg", "A refined retail concession for a heritage linen brand."),
+    ("queens-skate", "Queens Skate Dine Bowl", "hospitality social-gaming", "Bowling, Ice Rink & Bar", "London, UK", "460 sqm", "queens-skate.jpg", "Bowling, ice skating and dining under one roof."),
+    ("russell-bromley", "Russell & Bromley", "retail", "British Shoe Store", "Various, UK", "150 - 200 sqm", "russell-bromley.jpg", "Shaping the next chapter of the great British shoe store."),
+    ("shakti", "Shakti", "brand-identity health-leisure", "Acupressure and wellbeing", "Global", "", "shakti.jpg", "Reframing an ancient ritual for modern life."),
+    ("spencer-hart", "Spencer Hart", "retail", "Modern British Tailoring", "Brook St, London", "25 sqm", "spencer-hart.jpg", "Translating Nick Hart's rich and varied world into the brand's first flagship store."),
+    ("the-brewery", "The Brewery", "workplace", "Out of town workplace", "Oxfordshire, UK", "468 sqm", "brewery.jpg", "An out of town workplace with rural charm and modern thinking."),
+    ("the-office-group", "The Office Group", "workplace", "A suite of projects", "London, UK", "885 - 1040 sqm", "office-group.jpg", "A suite of workspace projects across London."),
+    ("thomas-goode", "Thomas Goode", "retail heritage", "Royal Warrant Tableware", "Mumbai, India", "110 sqm", "thomas-goode.jpg", "Bringing a Royal Warrant tableware brand to Mumbai."),
+    ("turnbull-asser", "Turnbull & Asser", "retail heritage", "Royal Warrant Shirtmaker", "Davis St, London", "110 sqm", "turnbull-asser.jpg", "A Royal Warrant shirtmaker reimagined for a modern era."),
+    ("ulu-cliffhouse", "Ulu Cliffhouse", "hospitality health-leisure", "World class beach club", "Bali, Indonesia", "4750 sqm", "ulu-cliffhouse.jpg", "Building a world class destination from the rock-face up."),
+    ("vertu", "Vertu", "retail", "Luxury tech retail", "Global", "", "vertu.jpg", "Luxury tech retail rolled out across the globe."),
+    ("william-son", "William & Son", "retail heritage", "Heritage Lifestyle Store", "Bruton Street, London", "950 sqm", "william-son.jpg", "A heritage lifestyle store brought into the 21st century."),
+]
+
+def get_category_labels(cats_str):
+    """Convert category slugs to display labels."""
+    mapping = {
+        "workplace": "Workplace",
+        "exhibition": "Exhibition",
+        "retail": "Retail",
+        "heritage": "Heritage",
+        "hospitality": "Hospitality",
+        "social-gaming": "Social Gaming",
+        "health-leisure": "Health & Leisure",
+        "brand-identity": "Brand Identity",
+        "beauty": "Beauty",
+        "infrastructure": "Infrastructure",
+    }
+    return [mapping.get(c, c.title()) for c in cats_str.split()]
+
+def pill_html(label):
+    return f'''<span class="title-pill title-pill--filled title-pill--fill-dark">
+                      <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
+                      <span class="title-pill__label body-xs text-uppercase">{html.escape(label)}</span>
+                    </span>'''
+
+def get_next_project(idx):
+    return PROJECTS[(idx + 1) % len(PROJECTS)]
+
+def get_related_projects(idx):
+    """Get 3 related projects (next 3 after current)."""
+    total = len(PROJECTS)
+    return [PROJECTS[(idx + i) % total] for i in range(1, 4)]
+
+def generate_page(idx):
+    slug, name, categories, sector, location, area, hero_img, excerpt = PROJECTS[idx]
+    cat_labels = get_category_labels(categories)
+    next_proj = get_next_project(idx)
+    related = get_related_projects(idx)
+
+    name_escaped = html.escape(name)
+    sector_escaped = html.escape(sector)
+    location_escaped = html.escape(location)
+    area_escaped = html.escape(area)
+    excerpt_escaped = html.escape(excerpt)
+
+    # Category pills for metadata
+    cats_display = ", ".join(cat_labels)
+
+    # Related project cards HTML
+    related_cards = ""
+    for rslug, rname, rcats, rsector, rloc, rarea, rimg, rexcerpt in related:
+        rcat_labels = get_category_labels(rcats)
+        rpills = "\n                    ".join([pill_html(l) for l in rcat_labels[:2]])
+        related_cards += f'''
+          <div class="work-grid__item">
+            <a href="{rslug}.html" class="list-item" data-cursor="View">
+              <div class="list-item__fig clip-reveal" data-reveal>
+                <img src="../img/{rimg}" alt="{html.escape(rname)}" class="base-image__img base-image__img--loaded">
+              </div>
+              <div class="list-item__wrapper anim-line" data-reveal>
+                <h4 class="list-item__title">{html.escape(rname)}</h4>
+                <div class="list-item-tags">
+                    {rpills}
+                </div>
+              </div>
+            </a>
+          </div>'''
+
+    page_html = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shed | Cha Cha Teng</title>
-  <meta name="description" content="Cha Cha Teng &mdash; Holborn, London. Authentic Hong Kong dining brought to the heart of London.">
-  <meta property="og:title" content="Shed | Cha Cha Teng">
-  <meta property="og:description" content="Cha Cha Teng &mdash; Hong Kong Style Restaurant. Holborn, London.">
+  <title>Shed | {name_escaped}</title>
+  <meta name="description" content="{name_escaped} &mdash; {location_escaped}. {excerpt_escaped}">
+  <meta property="og:title" content="Shed | {name_escaped}">
+  <meta property="og:description" content="{name_escaped} &mdash; {sector_escaped}. {location_escaped}.">
   <meta property="og:type" content="website">
 
   <!-- CSS -->
@@ -45,7 +157,7 @@
     <!-- Center Pill: Project Name -->
     <span class="header__center-pill title-pill title-pill--small">
       <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
-      <span class="title-pill__label body-xs text-uppercase">Cha Cha Teng</span>
+      <span class="title-pill__label body-xs text-uppercase">{name_escaped}</span>
     </span>
     <button class="nav-toggle nav-toggle--open" data-cursor="Menu" data-cursor-small>
       <svg class="nav-toggle__svg" viewBox="0 0 19 19" fill="none">
@@ -122,11 +234,11 @@
       <!-- ===== 1. PROJECT HERO ===== -->
       <section class="project-hero">
         <div class="project-hero__fig">
-          <img src="../img/cha-cha-teng.jpg" alt="Cha Cha Teng &mdash; Holborn, London">
+          <img src="../img/{hero_img}" alt="{name_escaped} &mdash; {location_escaped}">
         </div>
         <div class="project-hero__content">
-          <h1 class="project-hero__title anim-word">Cha Cha Teng</h1>
-          <p class="project-hero__subtitle anim-line">Holborn, London</p>
+          <h1 class="project-hero__title anim-word">{name_escaped}</h1>
+          <p class="project-hero__subtitle anim-line">{location_escaped}</p>
         </div>
       </section>
 
@@ -136,24 +248,24 @@
           <div class="project-meta anim-line" data-reveal>
             <div class="project-meta__group" style="margin-bottom:2.4rem">
               <span class="body-xs text-uppercase" style="display:block;margin-bottom:0.6rem;opacity:0.5">Client</span>
-              <span class="body-md">Cha Cha Teng</span>
+              <span class="body-md">{name_escaped}</span>
             </div>
             <div class="project-meta__group" style="margin-bottom:2.4rem">
               <span class="body-xs text-uppercase" style="display:block;margin-bottom:0.6rem;opacity:0.5">Location</span>
-              <span class="body-md">Holborn, London</span>
+              <span class="body-md">{location_escaped}</span>
             </div>
             <div class="project-meta__group" style="margin-bottom:2.4rem">
               <span class="body-xs text-uppercase" style="display:block;margin-bottom:0.6rem;opacity:0.5">Sectors</span>
-              <span class="body-md">Hospitality</span>
-            </div>
+              <span class="body-md">{cats_display}</span>
+            </div>{f"""
             <div class="project-meta__group">
               <span class="body-xs text-uppercase" style="display:block;margin-bottom:0.6rem;opacity:0.5">Size</span>
-              <span class="body-md">400 sqm</span>
-            </div>
+              <span class="body-md">{area_escaped}</span>
+            </div>""" if area else ""}
           </div>
           <div class="project-intro anim-line" data-reveal>
             <p class="body-lg" style="margin-bottom:2rem">
-              Authentic Hong Kong dining brought to the heart of London.
+              {excerpt_escaped}
             </p>
             <p class="body-md">
               This is a placeholder case study page. Replace this content with the actual project description, detailing the design brief, creative approach, and outcomes delivered.
@@ -165,7 +277,7 @@
       <!-- ===== 3. FULL-WIDTH IMAGE ===== -->
       <section class="module module--fullwidth">
         <div class="clip-reveal" data-reveal>
-          <img src="../img/cha-cha-teng.jpg" alt="Cha Cha Teng project image">
+          <img src="../img/{hero_img}" alt="{name_escaped} project image">
         </div>
       </section>
 
@@ -173,7 +285,7 @@
       <section class="next-up next-up--dark">
         <div class="next-up__header">
           <span class="next-up__label body-xs text-uppercase anim-fade" data-reveal>Next Up</span>
-          <a href="commodity.html" class="next-up__arrow anim-fade" data-reveal data-cursor="View">
+          <a href="{next_proj[0]}.html" class="next-up__arrow anim-fade" data-reveal data-cursor="View">
             <svg viewBox="0 0 155 157" fill="currentColor">
               <path stroke="currentColor" stroke-width="3" d="M1.5 87.688v1.5h109.691l-48.798 48.797-1.064 1.064 1.068 1.061 13.046 12.954 1.06 1.054 1.058-1.057 73.5-73.5 1.06-1.061-1.06-1.06-73.5-73.5L76.5 2.878l-1.06 1.06-12.955 12.955-1.06 1.06 1.059 1.06 48.711 48.799H1.5v19.874Z"/>
             </svg>
@@ -191,63 +303,7 @@
             </a>
           </div>
         </div>
-        <div class="work-grid">
-          <div class="work-grid__item">
-            <a href="commodity.html" class="list-item" data-cursor="View">
-              <div class="list-item__fig clip-reveal" data-reveal>
-                <img src="../img/commodity.jpg" alt="Commodity" class="base-image__img base-image__img--loaded">
-              </div>
-              <div class="list-item__wrapper anim-line" data-reveal>
-                <h4 class="list-item__title">Commodity</h4>
-                <div class="list-item-tags">
-                    <span class="title-pill title-pill--filled title-pill--fill-dark">
-                      <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
-                      <span class="title-pill__label body-xs text-uppercase">Beauty</span>
-                    </span>
-                    <span class="title-pill title-pill--filled title-pill--fill-dark">
-                      <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
-                      <span class="title-pill__label body-xs text-uppercase">Retail</span>
-                    </span>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="work-grid__item">
-            <a href="counter-house.html" class="list-item" data-cursor="View">
-              <div class="list-item__fig clip-reveal" data-reveal>
-                <img src="../img/counter-house.jpg" alt="The Counter House" class="base-image__img base-image__img--loaded">
-              </div>
-              <div class="list-item__wrapper anim-line" data-reveal>
-                <h4 class="list-item__title">The Counter House</h4>
-                <div class="list-item-tags">
-                    <span class="title-pill title-pill--filled title-pill--fill-dark">
-                      <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
-                      <span class="title-pill__label body-xs text-uppercase">Hospitality</span>
-                    </span>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="work-grid__item">
-            <a href="etat-libre.html" class="list-item" data-cursor="View">
-              <div class="list-item__fig clip-reveal" data-reveal>
-                <img src="../img/etat-libre.jpg" alt="Etat Libre D&#x27;Orange" class="base-image__img base-image__img--loaded">
-              </div>
-              <div class="list-item__wrapper anim-line" data-reveal>
-                <h4 class="list-item__title">Etat Libre D&#x27;Orange</h4>
-                <div class="list-item-tags">
-                    <span class="title-pill title-pill--filled title-pill--fill-dark">
-                      <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
-                      <span class="title-pill__label body-xs text-uppercase">Beauty</span>
-                    </span>
-                    <span class="title-pill title-pill--filled title-pill--fill-dark">
-                      <svg class="title-pill__border" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" rx="20"></rect></svg>
-                      <span class="title-pill__label body-xs text-uppercase">Retail</span>
-                    </span>
-                </div>
-              </div>
-            </a>
-          </div>
+        <div class="work-grid">{related_cards}
         </div>
       </section>
 
@@ -305,7 +361,7 @@
       <a href="../work.html" class="see-work-cta__link">
         <span class="see-work-cta__text h2">See</span>
         <span class="see-work-cta__img-wrapper">
-          <img src="../img/cha-cha-teng.jpg" alt="" class="see-work-cta__img">
+          <img src="../img/{hero_img}" alt="" class="see-work-cta__img">
         </span>
         <span class="see-work-cta__text h2">Work</span>
         <span class="see-work-cta__arrow">
@@ -329,4 +385,31 @@
   <script src="../js/transitions.js"></script>
   <script src="../js/components.js"></script>
 </body>
-</html>
+</html>'''
+
+    return page_html
+
+
+# ---- Generate all pages ----
+print("Generating 35 project pages...")
+for i in range(len(PROJECTS)):
+    slug = PROJECTS[i][0]
+    page_html = generate_page(i)
+    filepath = os.path.join(WORK_DIR, f"{slug}.html")
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.write(page_html)
+    print(f"  Created work/{slug}.html")
+
+# ---- Build slug lookup for updating work.html links ----
+# Map project names to slugs for link updating
+NAME_TO_SLUG = {}
+for slug, name, *_ in PROJECTS:
+    NAME_TO_SLUG[name.lower()] = slug
+    # Also map without "the " prefix
+    if name.lower().startswith("the "):
+        NAME_TO_SLUG[name[4:].lower()] = slug
+
+print(f"\nGenerated {len(PROJECTS)} pages in work/ directory.")
+print("\nSlug mapping for work.html link updates:")
+for name, slug in sorted(NAME_TO_SLUG.items()):
+    print(f"  {name} -> work/{slug}.html")
