@@ -1352,7 +1352,9 @@
   left: 50%;
   top: 0.6rem;
   transform: translateX(-50%);
-  pointer-events: none;
+  pointer-events: auto;
+  text-decoration: none;
+  color: currentColor;
 }
 .header__center-pill .title-pill__border rect {
   stroke: currentColor;
@@ -1408,6 +1410,17 @@
 }
 @media (min-width: 1024px) {
   .next-up__label { font-size: 0.6875vw; }
+}
+.next-up__name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  color: currentColor;
+  text-decoration: none;
+}
+@media (min-width: 1024px) {
+  .next-up__name { font-size: 3.75vw; }
 }
 .next-up__arrow {
   display: flex;

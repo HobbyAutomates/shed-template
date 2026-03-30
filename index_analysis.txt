@@ -1,0 +1,607 @@
+====================================================================================================
+SHED.DESIGN /WORK — INDEX VIEW ANALYSIS
+Scraped: 2026-03-30
+Source: https://shed.design/work  (via Firecrawl -> scraped_work.html)
+Local Template: work.html + js/components.js + css/components.css
+====================================================================================================
+
+
+================================================================================
+1. INDEX VIEW HTML STRUCTURE  (.work-index section)
+================================================================================
+
+ORIGINAL SITE (Nuxt 3 / Vue.js):
+  <div id="index" data-lenis-prevent class="work-index" style="display:none;">
+    <p class="work-index__title ttu h3">The Index</p>
+    <div class="work-index__filters">
+      <ul class="nav-filters--light nav-filters">
+        <li class="nav-filters__item--active nav-filters__item">
+          <button class="btn--small btn--theme-light btn btn-label ttu">
+            <span class="btn__label">All</span>
+          </button>
+        </li>
+        <!-- ... more filter buttons ... -->
+      </ul>
+    </div>
+    <div class="grid">
+      <ul class="work-index__list">
+        <li class="work-index-item">...</li>
+        <!-- 35 items total -->
+      </ul>
+      <div class="work-index-assets">
+        <div class="work-index-assets__wrapper" css="false">
+          <div style="display:none;" class="work-index__fig-wrapper">
+            <figure class="work-index__fig">
+              <picture class="base-image--fit base-image">...</picture>
+            </figure>
+          </div>
+          <!-- 35 figure wrappers, one per project -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+LOCAL TEMPLATE (work.html):
+  <div id="indexView" class="work-view work-index">
+    <div class="work-index__header gutters">
+      <h2 class="work-index__heading h1 text-uppercase anim-word" data-reveal>The Index</h2>
+      <div class="work-index__filters" data-reveal>
+        <button class="work-index__filter-btn active" data-filter="all">All</button>
+        <!-- ... more filter buttons ... -->
+      </div>
+    </div>
+    <div class="work-index__hover-img" id="indexHoverImg">
+      <img src="" alt="">
+    </div>
+    <div class="work-index__list gutters">
+      <a href="work-detail.html" class="work-index-item" data-category="..." data-cursor="View" data-img="...">
+        <span class="work-index-item__name h4">...</span>
+        <span class="work-index-item__desc body-xs text-uppercase">...</span>
+        <span class="work-index-item__location body-xs text-uppercase">...</span>
+        <span class="work-index-item__size body-xs text-uppercase">...</span>
+      </a>
+      <!-- 35 items total -->
+    </div>
+  </div>
+
+KEY DIFFERENCES BETWEEN ORIGINAL AND LOCAL TEMPLATE:
+  - Original uses <ul>/<li> list; local uses flat <a> elements (no list wrapper)
+  - Original has a separate "work-index-assets" sticky panel with all 35 images pre-loaded;
+    local uses a single <img> that swaps src on hover (simpler approach)
+  - Original toggles display:none on the entire overlay; local uses .is-active class toggle
+  - Original index is position:fixed covering the full viewport; local treats it as a
+    normal page section hidden/shown via .work-view/.is-active
+  - Original has data-lenis-prevent on the overlay to isolate scroll
+  - Local template uses CSS transition (translateX) for slide-in animation
+
+
+================================================================================
+2. INDEX ITEM STRUCTURE (links, data attributes, hover images)
+================================================================================
+
+ORIGINAL SITE (per index item):
+  <li class="work-index-item">
+    <a href="/work/{slug}" class="work-index-item__link">
+      <span class="work-index-item__label p3 fw400">{Project Name}</span>
+      <span class="work-index-item__sector work-index-item__meta ttu">{Description/Sector}</span>
+      <span class="work-index-item__meta ttu">{Location}</span>
+      <span class="work-index-item__link-label work-index-item__meta ttu">{Area sqm}</span>
+    </a>
+  </li>
+
+  Layout (original):
+    - Mobile: flex-wrap, label takes 100% width, meta items below
+    - Desktop: label = 27.1875vw, sector = 17.5vw, rest flex
+    - Bottom border via ::after pseudo-element (height 0.1rem)
+    - Link label (area) is hidden on desktop, visible on mobile
+    - Hover color: #6ccaff (light blue)
+    - Filtered state: .work-index-item--faded { opacity: 0.2, pointer-events: none }
+    - Transition: opacity 0.8s cubic-bezier(.14,1,.34,1)
+
+LOCAL TEMPLATE (per index item):
+  <a href="work-detail.html" class="work-index-item"
+     data-category="workplace"
+     data-cursor="View"
+     data-img="img/angel-square-hover.jpg">
+    <span class="work-index-item__name h4">{Project Name}</span>
+    <span class="work-index-item__desc body-xs text-uppercase">{Description}</span>
+    <span class="work-index-item__location body-xs text-uppercase">{Location}</span>
+    <span class="work-index-item__size body-xs text-uppercase">{Area}</span>
+  </a>
+
+  Layout (local):
+    - CSS Grid: grid-template-columns: 2fr 1fr 1fr auto
+    - Desktop: grid-template-columns: 2fr 1fr 1fr 6.25vw
+    - Mobile (<768px): grid-template-columns: 1fr auto (desc + location hidden)
+    - Border-bottom: 0.1rem solid rgba(235, 235, 235, 0.2)
+    - Hover color: #6ccaff (same as original)
+    - Filtered state: .is-filtered { opacity: 0.15, pointer-events: none }
+
+  Data Attributes:
+    - data-category: space-separated category slugs (e.g., "hospitality social-gaming")
+    - data-cursor: "View" (used by custom cursor to show label)
+    - data-img: path to hover image (e.g., "img/angel-square-hover.jpg")
+
+  All 35 projects are listed alphabetically with these 4 columns:
+    Column 1: Name (h4, font-size: 2.4rem / 1.75vw)
+    Column 2: Description (body-xs, opacity 0.6)
+    Column 3: Location (body-xs, opacity 0.6)
+    Column 4: Size/Area (body-xs, opacity 0.6, text-align right)
+
+
+================================================================================
+3. HOVER IMAGE PANEL STRUCTURE
+================================================================================
+
+ORIGINAL SITE:
+  Uses .work-index-assets — a sticky sidebar in the CSS grid (columns 7-9):
+    .work-index-assets {
+      display: none;  /* hidden on mobile */
+    }
+    @media (min-width: 1024px) {
+      .work-index-assets {
+        aspect-ratio: 499/569;
+        display: flex;
+        grid-column: 7 / span 3;
+        position: sticky;
+        top: calc(100lvh - 37.875vw);
+      }
+    }
+    .work-index-assets__wrapper {
+      height: 100%;
+      left: 1.125vw;
+      opacity: 0.9;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .work-index__fig-wrapper {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+    }
+    .work-index__fig {
+      height: 100%;
+    }
+
+  - All 35 project images are pre-rendered as <picture> elements inside the assets wrapper
+  - Each .work-index__fig-wrapper starts with display:none
+  - JS shows/hides them on hover by toggling display on the appropriate fig-wrapper
+  - The panel scrolls with the list (sticky positioning)
+  - Portrait aspect ratio (499:569 ~ 0.877:1)
+  - Slightly offset from left edge (left: 1.125vw)
+  - 90% opacity
+
+LOCAL TEMPLATE:
+  Uses .work-index__hover-img — a fixed panel on the right:
+    .work-index__hover-img {
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 33vw;
+      height: 100vh;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s var(--ease-out);
+      z-index: 10;
+    }
+    .work-index__hover-img.is-visible {
+      opacity: 1;
+    }
+    @media (max-width: 1023px) {
+      .work-index__hover-img { display: none; }
+    }
+
+  - Single <img> element that swaps src on hover (JS in initIndexHover)
+  - Fixed to right side of viewport, full height
+  - 33vw width (1/3 of viewport)
+  - Hidden on mobile (<1024px)
+  - Fades in/out with opacity transition (0.5s)
+  - The index list has padding-right: 34vw to make room for this panel
+
+  JS behavior (components.js -> initIndexHover):
+    - On mouseenter of a .work-index-item:
+      1. Read data-img attribute
+      2. Set img.src to that path
+      3. Add .is-visible to the hover-img container
+    - On mouseleave:
+      1. Remove .is-visible (fades out)
+
+
+================================================================================
+4. TOGGLE BETWEEN FEATURED / INDEX VIEWS
+================================================================================
+
+ORIGINAL SITE (.work-nav):
+  <nav class="work-nav">
+    <button class="work-nav__btn--active work-nav__btn ttu fw500">
+      <span class="work-nav__btn-label-wrapper oh" data-label="Featured">
+        <span class="work-nav__btn-label">Featured</span>
+      </span>
+    </button>
+    <button class="work-nav__btn work-nav__btn--index ttu fw500">
+      <span class="work-nav__btn-label-wrapper oh" data-label="Index">
+        <span class="work-nav__btn-label">Index</span>
+      </span>
+    </button>
+    <span class="work-nav__bg"></span>
+  </nav>
+
+  CSS:
+    - White pill background, dark border, border-radius 2rem
+    - Bottom-fixed, centered: left:50%, transform:translate(-50%)
+    - Initially hidden: transform:translate(-50%, calc(100% + 2rem))
+    - Shown via .work-nav--visible: transform:translate(-50%)
+    - Active button has sliding dark background (.work-nav__bg)
+    - When index active: .work-nav__bg--toggled adds blue (#0f00b0) overlay
+    - Hover effect: label slides up, duplicate appears from below (data-label attr)
+
+  Index overlay behavior (original):
+    - The .work-index is position:fixed, full viewport, z-index:1
+    - Initially style="display:none"
+    - When toggled: Vue transition "work-index-enter-active/leave-active"
+      - transform: translate(-100vw) -> translate(0)
+      - Duration: 0.8s, easing: cubic-bezier(.43,.2,.02,1)
+    - Background scrolls independently (data-lenis-prevent stops main Lenis scroll)
+
+LOCAL TEMPLATE (.work-toggle):
+  <div class="work-toggle" id="workToggle">
+    <button class="work-toggle__opt is-active" data-view="featured">Featured</button>
+    <span class="work-toggle__divider">/</span>
+    <button class="work-toggle__opt" data-view="index">Index</button>
+  </div>
+
+  CSS:
+    - Dark background (#1c1c1c), white text, border-radius 2rem
+    - Fixed bottom center, z-index 500
+    - Pill-shaped with "/" divider
+    - Active button: opacity 1, inactive: opacity 0.35
+    - Box-shadow for elevation
+
+  JS behavior (components.js -> initViewToggle):
+    function switchView(view) {
+      if (view === 'index') {
+        1. Remove .is-active from #featuredView
+        2. Add .is-entering + .is-active to #indexView
+        3. Force reflow (indexView.offsetHeight)
+        4. Remove .is-entering (triggers CSS transition)
+        5. Update header pill label to "The Index"
+        6. Add .header--index-visible to header (turns header elements #ebebeb)
+        7. Set body background to #0f00b0, color to #ebebeb
+      } else {
+        1. Remove .is-active from #indexView
+        2. Add .is-active to #featuredView
+        3. Update header pill label to "Featured Projects"
+        4. Remove header--index-visible
+        5. Reset body background + color
+      }
+      Toggle .is-active on buttons
+      Scroll to top (instant)
+    }
+
+  CSS animation:
+    .work-index {
+      transition: transform 0.8s cubic-bezier(0.43, 0.2, 0.02, 1);
+    }
+    .work-index.is-entering {
+      transform: translateX(-100vw);
+    }
+    .work-index.is-active {
+      transform: translateX(0);
+    }
+
+  Additional triggers:
+    - "The Index" CTA at bottom of featured view (#indexCtaLink)
+      -> Calls switchView('index') on click
+
+
+================================================================================
+5. FILTER BUTTONS IN INDEX VIEW
+================================================================================
+
+ORIGINAL SITE:
+  <div class="work-index__filters">
+    <ul class="nav-filters--light nav-filters">
+      <li class="nav-filters__item--active nav-filters__item">
+        <button class="btn--small btn--theme-light btn btn-label ttu">
+          <span class="btn__label">All</span>
+        </button>
+      </li>
+      <!-- More filters as <li> buttons -->
+    </ul>
+  </div>
+
+  - Uses .btn component with --small and --theme-light modifiers
+  - Active state: .nav-filters__item--active
+  - Light theme (white text/border on blue background)
+  - Centered, wrapping flex layout
+
+LOCAL TEMPLATE:
+  <div class="work-index__filters" data-reveal>
+    <button class="work-index__filter-btn active" data-filter="all">All</button>
+    <button class="work-index__filter-btn" data-filter="hospitality">Hospitality</button>
+    <button class="work-index__filter-btn" data-filter="retail">Retail</button>
+    <button class="work-index__filter-btn" data-filter="workplace">Workplace</button>
+    <button class="work-index__filter-btn" data-filter="exhibition">Exhibition</button>
+    <button class="work-index__filter-btn" data-filter="brand-identity">Brand Identity</button>
+    <button class="work-index__filter-btn" data-filter="health-leisure">Health & Leisure</button>
+    <button class="work-index__filter-btn" data-filter="social-gaming">Social Gaming</button>
+    <button class="work-index__filter-btn" data-filter="heritage">Heritage</button>
+    <button class="work-index__filter-btn" data-filter="beauty">Beauty</button>
+    <button class="work-index__filter-btn" data-filter="infrastructure">Infrastructure</button>
+  </div>
+
+  CSS:
+    .work-index__filter-btn {
+      color: #ebebeb;
+      border: 0.1rem solid rgba(235, 235, 235, 0.3);
+      border-radius: 2rem;
+      padding: 0.35rem 0.8rem;
+    }
+    .work-index__filter-btn:not(.active) { opacity: 0.5; }
+    .work-index__filter-btn.active { border-color: #ebebeb; }
+    :hover { opacity: 1; border-color: #ebebeb; }
+
+  Categories (11 total, data-filter values):
+    all, hospitality, retail, workplace, exhibition,
+    brand-identity, health-leisure, social-gaming, heritage, beauty, infrastructure
+
+  JS behavior (components.js -> initWorkFilter):
+    - Both top bar (.work-filter__btn) and index (.work-index__filter-btn) are synced
+    - Clicking any filter in either view applies to BOTH views
+    - Grid items get .is-filtered (opacity 0.15, pointer-events none)
+    - Index items get .is-filtered (same)
+    - Matching is via item.dataset.category.includes(filter)
+    - Items can have MULTIPLE categories (e.g., "exhibition retail heritage")
+
+
+================================================================================
+6. HASH-BASED NAVIGATION (#index in URL)
+================================================================================
+
+ORIGINAL SITE:
+  - The Nuxt navigation menu has a link: <a href="/work#index">
+  - This is a Vue Router link with class "router-link-exact-active"
+  - Vue Router / Nuxt handle the hash natively:
+    -> Navigate to /work
+    -> After page load, check for #index hash
+    -> If present, auto-toggle to index view
+  - The index overlay div has id="index" which matches the hash
+
+LOCAL TEMPLATE:
+  - Currently NO hash-based navigation is implemented
+  - The index view div has id="indexView" (not id="index")
+  - To implement hash navigation, you would need:
+    1. Add to initViewToggle() or DOMContentLoaded:
+       if (window.location.hash === '#index') {
+         switchView('index');
+       }
+    2. Optionally update hash on toggle:
+       history.pushState(null, '', view === 'index' ? '#index' : '/work');
+    3. Listen for hashchange:
+       window.addEventListener('hashchange', () => {
+         if (window.location.hash === '#index') switchView('index');
+         else switchView('featured');
+       });
+
+
+================================================================================
+7. COMPLETE CSS REFERENCE FOR INDEX VIEW
+================================================================================
+
+/* --- Work View Toggle (show/hide) --- */
+.work-view { display: none; }
+.work-view.is-active { display: block; }
+
+/* --- Index Slide-in Animation --- */
+.work-index {
+  transition: transform 0.8s cubic-bezier(0.43, 0.2, 0.02, 1);
+}
+.work-index.is-entering {
+  transform: translateX(-100vw);
+}
+.work-index.is-active {
+  transform: translateX(0);
+}
+
+/* --- Index Container --- */
+.work-index {
+  background-color: #0f00b0;
+  color: #ebebeb;
+  padding: 0 0 8rem;
+  min-height: 100vh;
+}
+
+/* --- Index Header --- */
+.work-index__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  padding: 12rem 0 4rem;
+}
+@media (min-width: 1024px) {
+  .work-index__header { padding: 10vw 0 3.75vw; }
+}
+
+/* --- Index List (item container) --- */
+.work-index__list {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+@media (min-width: 1024px) {
+  .work-index__list { padding-right: 34vw; }  /* space for hover image panel */
+}
+
+/* --- Index Item (row) --- */
+.work-index-item {
+  align-items: baseline;
+  border-bottom: 0.1rem solid rgba(235, 235, 235, 0.2);
+  color: #ebebeb;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  transition: color 0.6s, opacity 0.6s;
+}
+@media (min-width: 1024px) {
+  .work-index-item { grid-template-columns: 2fr 1fr 1fr 6.25vw; gap: 0.75vw; padding: 0.5vw 0; }
+}
+@media (max-width: 767px) {
+  .work-index-item { grid-template-columns: 1fr auto; }
+  .work-index-item__desc, .work-index-item__location { display: none; }
+}
+.work-index-item:hover { color: #6ccaff; }
+.work-index-item.is-filtered { opacity: 0.15; pointer-events: none; }
+
+/* --- Hover Image Panel (fixed right) --- */
+.work-index__hover-img {
+  position: fixed;
+  right: 0; top: 0;
+  width: 33vw; height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 10;
+}
+.work-index__hover-img.is-visible { opacity: 1; }
+.work-index__hover-img img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 1023px) { .work-index__hover-img { display: none; } }
+
+/* --- Floating Toggle --- */
+.work-toggle {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+  background-color: var(--brand-dark);
+  color: var(--brand-white);
+  border-radius: 2rem;
+  padding: 0.55rem 1.2rem;
+  box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.4);
+}
+.work-toggle__opt.is-active { opacity: 1; }
+.work-toggle__opt:not(.is-active) { opacity: 0.35; }
+
+/* --- Filter Buttons --- */
+.work-index__filter-btn {
+  color: #ebebeb;
+  border: 0.1rem solid rgba(235, 235, 235, 0.3);
+  border-radius: 2rem;
+  padding: 0.35rem 0.8rem;
+}
+.work-index__filter-btn:not(.active) { opacity: 0.5; }
+.work-index__filter-btn.active { border-color: #ebebeb; }
+
+/* --- Header State When Index Active --- */
+.header--index-visible .header-logo { color: #ebebeb; }
+.header--index-visible .nav-toggle { color: #ebebeb; transition-delay: 0.45s; }
+.header--index-visible .header__center-pill { color: #ebebeb; }
+
+
+================================================================================
+8. ORIGINAL vs. LOCAL TEMPLATE — KEY ARCHITECTURAL DIFFERENCES
+================================================================================
+
+Feature                     | Original (Nuxt/Vue)              | Local (Static HTML)
+----------------------------+----------------------------------+----------------------------------
+Framework                   | Nuxt 3 SSR + Vue Router          | Vanilla HTML + JS
+Index overlay               | position:fixed, z-index:1,       | .work-view toggle (display:none/
+                            | full viewport overlay             |   block via .is-active)
+Hover image panel           | Sticky grid col (7-9), all 35    | Fixed right panel, single <img>
+                            | images pre-rendered               |   swaps src on hover
+Filter system               | Vue reactive + btn components    | Vanilla JS, data-filter attrs
+Toggle nav                  | .work-nav (white pill w/ slider) | .work-toggle (dark pill w/ slash)
+Hash navigation             | /work#index via Vue Router       | Not yet implemented
+Scroll isolation            | data-lenis-prevent on overlay    | Scrolls to top (instant)
+View transition             | Vue <transition> component       | CSS transform + JS class toggle
+Item structure              | <li> with <a> inside             | <a> directly (no list wrapper)
+Item layout                 | flex-wrap, width-based sizing    | CSS Grid 4-column
+Item hover image            | 35 pre-loaded <picture> in       | Single <img> with data-img attr
+                            | sticky sidebar                    |   and opacity transition
+Categories on items         | Server-rendered from CMS         | data-category attribute (static)
+
+
+================================================================================
+9. ALL 35 INDEX ITEMS WITH CATEGORIES AND HOVER IMAGES
+================================================================================
+
+Project Name             | data-category                    | data-img
+-------------------------+----------------------------------+----------------------------------
+Angel Square             | workplace                        | img/angel-square-hover.jpg
+Barbour                  | exhibition retail heritage        | img/barbour-hover.jpg
+B_Fit                    | health-leisure                    | img/b-fit.jpg
+Birdies Crazy Golf       | social-gaming hospitality         | img/birdies-crazy-golf-hover.jpg
+Bite                     | workplace                        | img/bite.jpg
+Bounce Battersea         | hospitality social-gaming         | img/bounce-battersea-idx.jpg
+Bunkers                  | social-gaming                    | img/bunkers.jpg
+Cha Cha Teng             | hospitality                      | img/cha-cha-teng.jpg
+Commodity                | beauty retail                    | img/commodity.jpg
+The Counter House        | hospitality                      | img/counter-house.jpg
+Etat Libre D'Orange      | beauty retail                    | img/etat-libre.jpg
+Freuds                   | workplace                        | img/freuds.jpg
+Harrods Toy Kingdom      | retail                           | img/harrods-toy-kingdom-hover.jpg
+Jollibee                 | hospitality                      | img/jollibee-hover.jpg
+Kudos                    | hospitality                      | img/kudos.jpg
+Level Shoe District      | retail                           | img/level-shoe-district-hover.jpg
+Lotte Dongtang           | retail                           | img/lotte-dongtang-hover.jpg
+Margaret Dabbs           | beauty                           | img/margaret-dabbs.jpg
+Meat Liquor              | hospitality                      | img/meat-liquor-idx.jpg
+Optimo                   | health-leisure                    | img/optimo.jpg
+Oree                     | hospitality                      | img/oree.jpg
+Pass on Plastic          | exhibition                       | img/pass-on-plastic.jpg
+Peter Reed               | retail                           | img/peter-reed.jpg
+Queens Skate Dine Bowl   | hospitality social-gaming         | img/queens-skate.jpg
+Russell & Bromley        | retail                           | img/russell-bromley-hover.jpg
+Shakti                   | brand-identity health-leisure     | img/shakti-hover.jpg
+Spencer Hart             | retail                           | img/spencer-hart-hover.jpg
+The Brewery              | workplace                        | img/brewery.jpg
+The Office Group         | workplace                        | img/office-group.jpg
+Thomas Goode             | retail heritage                  | img/thomas-goode.jpg
+Turnbull & Asser         | retail heritage                  | img/turnbull-asser.jpg
+Ulu Cliffhouse           | hospitality health-leisure        | img/ulu-cliffhouse-idx.jpg
+Vertu                    | retail                           | img/vertu.jpg
+William & Son            | retail heritage                  | img/william-son.jpg
+Luton Airport            | infrastructure brand-identity     | img/luton-airport-idx.jpg
+
+
+================================================================================
+10. COMPLETE JS REFERENCE (components.js)
+================================================================================
+
+--- initWorkFilter() ---
+  Selects: .work-filter__btn (featured grid) + .work-index__filter-btn (index)
+  Targets: .work-grid__item (featured) + .work-index-item (index)
+  Logic: Clicking any filter syncs .active across both button sets,
+         adds .is-filtered to non-matching items in both views
+  Matching: item.dataset.category?.includes(filter) — substring match
+
+--- initViewToggle() ---
+  Elements: #workToggle, #featuredView, #indexView, #headerPillLabel, #workPageWrapper
+  switchView('index'):
+    - featuredView.classList.remove('is-active')
+    - indexView: add .is-entering + .is-active, reflow, remove .is-entering
+    - Header pill -> "The Index", header -> .header--index-visible
+    - body.style.backgroundColor = '#0f00b0', body.style.color = '#ebebeb'
+    - scrollTo(0, instant)
+  switchView('featured'):
+    - indexView.classList.remove('is-active')
+    - featuredView.classList.add('is-active')
+    - Header pill -> "Featured Projects", remove .header--index-visible
+    - Reset body styles
+    - scrollTo(0, instant)
+  Also: #indexCtaLink click -> switchView('index')
+
+--- initIndexHover() ---
+  Elements: #indexHoverImg (container), img inside, all .work-index-item
+  mouseenter: Read data-img, set img.src, add .is-visible
+  mouseleave: Remove .is-visible
+
+
+====================================================================================================
+END OF INDEX VIEW ANALYSIS
+====================================================================================================
